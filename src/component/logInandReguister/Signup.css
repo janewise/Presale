@@ -1,0 +1,59 @@
+.SignUp-main{
+    width: 100%;
+    min-height: 100vh;
+    background-image:url("./upboxbg1.png");
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signUp-container{
+width:500px;
+padding: 20px;
+background-color: #322f2f79;
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+display: flex;
+text-align: center;
+justify-content: center;
+flex-direction: column;
+border-radius: 20px;
+}
+
+.signUp-container h2{
+  margin-bottom: 2rem;
+    }
+    
+
+.Up-form-group input[type="password"],
+.Up-form-group input[type="email"]{
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.Up-form-group input[type="password"]::-webkit-outer-spin-button,
+.Up-form-group input[type="email"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+.Up-form-group input{
+    color: #ffffff;
+    width: 70%;
+    padding: 5px 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.signupbtn{
+    margin-bottom: 1.5rem;
+
+}

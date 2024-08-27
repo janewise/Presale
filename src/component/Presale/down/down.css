@@ -1,0 +1,130 @@
+.downmain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.downbox1 {display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+      position: relative;
+     width: 95%;
+     background: rgba(0, 42, 101, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 1.8rem;
+      margin-bottom: 3rem;
+    }
+    
+    .downbox1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      padding: 2px; 
+      background: linear-gradient(90deg, #73EAF3 0%, #FC42DA 49%, #4A0ECB 100%);
+      -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; 
+      mask-composite: exclude;
+      z-index: -1; 
+    }
+
+
+    .custom-form {
+        margin: 20px auto;
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+        position: relative;
+      }
+      
+      label {
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #ffffff;
+        width: 100px;
+        text-align: right;
+      }
+      
+      input[type="email"],
+      input[type="number"] {
+        padding: 7px 2px;
+        width: 235px;
+        border: none;
+        border-bottom: 2px solid #ccc;
+        background-color: transparent;
+        font-size: 16px;
+        color: #ffffff;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      
+      input[type="number"]::-webkit-inner-spin-button,
+input[type="email"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+      
+      input[type="email"],
+      input[type="number"]:focus {
+        border-bottom-color: #4A0ECB;
+      }
+      
+      input[type="email"],
+      input[type="number"]:hover {
+        border-bottom-color: #73EAF3;
+      }
+      
+      .submit-btn {
+        margin: 40px auto;
+        display: block;
+        font-weight: 500;
+        padding: 5px 20px;
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        text-align: center;
+      }
+      
+      .submit-btn:hover {
+        background: linear-gradient(90deg, #229ED9 0%, #9245F6 100%);
+        color: #ffffff;
+      }
+      
+/*a -- -- ?Presale down? -- -- */
+
+      @media (max-width:438px) {
+        .downbox1{
+          width: 96%;
+          padding: 0;
+        }
+        input[type="email"],
+      input[type="number"] {
+        width: 230px;
+      }
+      }
+
+@media (max-width:380px) {
+  input[type="email"],
+input[type="number"] {
+  width: 205px;
+}
+}

@@ -1,0 +1,283 @@
+/* 
+.inknut-antiqua-medium {
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 64px;
+    background: linear-gradient(90deg, #ff12ef 0%, #188FFF 51%, #04EFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.inknut-antiqua-semibold {
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 600;
+    font-style: normal;
+  } */
+
+/* main flex */
+.homeflex{
+display: flex;
+width: 100%;
+}
+
+/*02 -- -- home leftside -- - */
+.homeleft{
+    width: 60%;
+   margin-left: 6%;
+}
+
+
+.gladiator{
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 64px;
+    background: linear-gradient(90deg, #ff12ef 0%, #188FFF 51%, #04EFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+  .myg{
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 64px;
+    background: linear-gradient(90deg, #00CCFF 0%, #D413FF 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .homeleft p{
+    font-size: 24px;
+  }
+/* twosale */
+.twobtn{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.homesale{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 1rem;
+}
+
+.homesale p{
+    padding:9px 4px;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    width: 140px;
+    text-align: center;
+}
+
+.homesale p:hover{
+  background: linear-gradient(90deg, #1CB2FF 0%, #FF12EF 100%);
+  padding:11px 6px;
+  border:none;
+}
+
+/*03 -- -- home rightside -- -- */
+.homeright {
+    width: 40%;
+    overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+  
+  .homecoin {
+    width: 105%;
+    height: auto;
+
+  }
+
+
+  /* Animation only for users who don't prefer reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .homecoin {
+      animation: App-logo-spin infinite 15s linear; /* Reduced duration for a smoother effect */
+    }
+  }
+  
+  /* Keyframes for spinning animation */
+  @keyframes App-logo-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Additional responsive styling 
+  @media (max-width: 768px) {
+    .homeright {
+      width: 100%; 
+    }
+  
+    .homecoin {
+      width: 50%; 
+    }
+  }
+  */
+
+  /*04 -- -- Social -- -- */
+  .social{
+    margin-top: 1rem;
+    text-align: center;
+  }
+.social h2{
+    margin-bottom: 2rem;
+}
+
+.social a{
+    color: #fff;
+}
+
+  .Xsocialicon{
+    padding: 10px;
+    background-color: rgba(51, 100, 169, 0.47);
+    border-radius: 50%;
+    margin-right: 1.2rem;
+  }
+
+  .Tsocialicon{
+    border: 5px solid  rgba(51, 100, 169,0.47);
+    border-radius: 50%;
+    margin:0 1.2rem;
+    /* background-color: #fff; */
+  }
+.Dsocialicon{
+    padding: 10px;
+    background-color: rgba(51, 100, 169, 0.47);
+    border-radius: 50%;
+    margin-left: 1.2rem;
+}
+
+  .Xsocialicon:hover{
+    background-color: #9FC7FF;
+  }
+  .Tsocialicon:hover{
+    border: 5px solid  #9FC7FF;
+    background-color: #ffffff;
+  }
+  .Dsocialicon:hover{
+    background-color: #9FC7FF;
+}
+
+.social p{
+    font-size: 18px;
+    margin-top: 2rem;
+}
+
+/*A -- -- ?Media quaries? -- -- */
+
+/*a-- -- ?homeflex? -- -- */
+
+@media (max-width: 760px) {
+  .homeflex{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    }
+}
+
+/*b -- -- ?Hone left? -- -- */
+
+@media (max-width: 1230px) {
+  .gladiator{
+    width: 700px;
+}
+}
+
+@media (max-width: 1100px) {
+  .homeleft{
+    margin-left: 4%;
+  }
+  .gladiator{
+    width: 580px;
+   font-size: 54px;
+}
+.myg{
+  font-size: 54px;
+}
+}
+
+@media (max-width:930px) {
+  .homeleft{
+    margin-left: 3%;
+  }
+  .gladiator{
+    width: 480px;
+   font-size: 45px;
+}
+.myg{
+  font-size: 45px;
+}
+}
+
+@media (max-width:830px) {
+  .gladiator{
+    width: 480px;
+   font-size: 40px;
+}
+.myg{
+  font-size: 40px;
+}
+}
+
+@media (max-width:760px) {
+  .homeleft{
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    margin-left: 0%;
+}
+.gladiator{
+  width: 100%;
+ font-size: 50px;
+}
+.myg{
+  font-size: 50px;
+  padding: 1.5rem 0;
+}
+}
+
+@media (max-width:606px) {
+.gladiator{
+ font-size: 40px;
+}
+.myg{
+  font-size: 40px;
+}
+.homeleft p{
+  font-size: 18px;
+}
+}
+
+
+@media (max-width:444px) {
+  .gladiator{
+   font-size: 33px;
+  }
+  .myg{
+    font-size: 33px;
+  }
+  .homeleft p{
+    font-size: 16px;
+  }
+  }
+
+/*b -- -- ?Hone right? -- -- */
+
+@media (max-width:760px) {
+  .homeright{
+    width: 100%;
+  }
+  .homecoin{
+    width: 75%;
+  }
+}

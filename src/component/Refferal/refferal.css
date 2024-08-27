@@ -1,0 +1,40 @@
+.refermain{
+    text-align: center;
+}
+
+.refermain h2{
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.refform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 150px;
+}
+
+.refinput{
+    width: 270px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(68, 68, 68);
+    outline: none; 
+}
+
+.referbutton{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    outline: none; 
+    border-radius: 15px;
+}
+
+.referbutton:hover{
+    background: linear-gradient(90deg, #229ED9 0%, #9245F6 100%);
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,136 @@
+.mainMup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mupbox1{
+      width: 97%;
+      height:auto;
+    background-color: #13131378;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+   }
+  
+  .mpresaletext{
+      margin-top: 2rem;
+     text-align: right;
+     margin-right: 2rem;
+  }
+  
+  .mpresaletext img{
+      width: 65%;
+      height: 38px;
+  }
+  
+  /* 02 -- -- ? leftcoin and right count down? -- -- */
+  .mupbox2{
+      display: flex;
+  }
+  /* 021 ?? leftcoin*/
+  
+  .mleftcoin{
+  width: 45%;
+  text-align:center;
+  }
+  
+  .mleftcoin img{
+      width: 100%;
+      }
+  
+    .mMythicalGladiator{
+      position:relative;
+      bottom:15%;
+      width: 77% !important;
+      height: 30px;
+    }
+  /* 022 ?? rightcountdown*/
+  .mrightcountdown{
+      width: 55%;
+  }
+  
+  .mcountdownbox{
+      padding-left: 8%;
+  }
+  
+
+  .mcountdownbox h3{
+     margin: 2rem 0;
+     display: inline-block;
+  }
+  
+  /*  */
+  
+  .mupbox3 {
+      position: relative;
+     width: 45%;
+      background: rgba(0, 0, 0, 0.56);
+      border-radius: 30px;
+      padding: 1.8rem;
+      margin-bottom: 3rem;
+    }
+    
+    .mupbox3 ::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 30px;
+      padding: 2px; 
+      background: linear-gradient(90deg, #73EAF3 0%, #FC42DA 49%, #4A0ECB 100%);
+      -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; 
+      mask-composite: exclude;
+      z-index: -1; 
+    }
+  
+    .upbox3 h4{
+      padding-left: 15%;
+    }
+  
+    /*a -- -- ?Presale MUp countdown? -- -- */
+  
+    @media (max-width:520px) {
+      .mcountdownbox{
+        padding-left: 3%;
+    }
+    .mcountdownbox h2{
+    font-size:1.26rem ;
+   }
+    }
+   
+    @media (max-width:375px) {
+      .mcountdownbox h2 span{
+        display:block;
+        margin: 0.5rem;
+        font-size: 1.3rem;
+      }
+      .mcountdownbox{
+       padding-left: 10%;
+    }
+    }
+
+
+        /*a -- -- ?Presale MUp pricebox? -- -- */
+
+        @media (max-width:700px) { 
+  .mupbox3 {
+   width: 55%;
+  }
+        }
+
+@media (max-width:520px) {         
+  .mupbox3 {
+  width: 65%;
+}
+}
+
+@media (max-width:375px) {         
+    .mupbox3 {
+      width: 75%;
+    }
+}

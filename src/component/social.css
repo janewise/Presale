@@ -1,0 +1,49 @@
+
+  /*04 -- -- Social -- -- */
+  .social{
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+.social h2{
+    margin-bottom: 2rem;
+}
+
+.social a{
+    color: #fff;
+}
+
+  .Xsocialicon{
+    padding: 10px;
+    background-color: rgba(51, 100, 169, 0.47);
+    border-radius: 50%;
+    margin-right: 1.2rem;
+  }
+
+  .Tsocialicon{
+    border: 5px solid  rgba(51, 100, 169,0.47);
+    border-radius: 50%;
+    margin:0 1.2rem;
+    /* background-color: #fff; */
+  }
+.Dsocialicon{
+    padding: 10px;
+    background-color: rgba(51, 100, 169, 0.47);
+    border-radius: 50%;
+    margin-left: 1.2rem;
+}
+
+  .Xsocialicon:hover{
+    background-color: #9FC7FF;
+  }
+  .Tsocialicon:hover{
+    border: 5px solid  #9FC7FF;
+    background-color: #ffffff;
+  }
+  .Dsocialicon:hover{
+    background-color: #9FC7FF;
+}
+
+.social p{
+    font-size: 18px;
+    margin-top: 2rem;
+}

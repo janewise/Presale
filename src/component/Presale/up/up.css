@@ -1,0 +1,166 @@
+.mainUp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upbox1{
+    width: 95%;
+    height:auto;
+    background-image:url(../imgpresale/upboxbg1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+ }
+
+.presaletext{
+    margin-top: 4.5rem;
+   text-align: right;
+   margin-right: 4rem;
+}
+
+.presaletext img{
+    width: 60%;
+    height: 48px;
+}
+
+/* 02 -- -- ? leftcoin and right count down? -- -- */
+.upbox2{
+    display: flex;
+}
+/* 021 ?? leftcoin*/
+
+.leftcoin{
+width: 50%;
+text-align:center;
+}
+
+.leftcoin img{
+    width: 100%;
+    }
+
+  .MythicalGladiator{
+    position: relative;
+    bottom:17%;
+    width: 70% !important;
+    height: 40px;
+  }
+/* 022 ?? rightcountdown*/
+.rightcountdown{
+    width: 50%;
+}
+
+.countdownbox{
+    position: relative;
+    left: -9%;
+   margin-top: 10%;
+}
+
+/* .countdownbox h2 span{
+  display:none;
+} */
+
+.countdownbox h3{
+   margin: 3rem 0;
+}
+
+/*  */
+
+.upbox3 {
+    position: relative;
+   width: 60%;
+    background: rgba(0, 0, 0, 0.56);
+    border-radius: 30px;
+    padding: 1.8rem;
+    margin-bottom: 3rem;
+  }
+  
+  .upbox3 ::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    padding: 2px; 
+    background: linear-gradient(90deg, #73EAF3 0%, #FC42DA 49%, #4A0ECB 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; 
+    mask-composite: exclude;
+    z-index: -1; 
+  }
+
+  .upbox3 h4{
+    padding-left: 15%;
+  }
+  
+  /* .countdown {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 3.3rem;
+    text-align: center;
+    color: #fff;
+    z-index: 1; 
+  }
+   */
+
+  /*a -- -- ?Presale Up Price limit bar? -- -- */
+
+  @media (max-width:1136px) {
+    .countdownbox h2{
+     font-size: 1.8rem;
+  }
+  }
+
+  @media (max-width:1053px) {
+    .countdownbox h2{
+     font-size: 1.5rem;
+     font-weight: 400;
+  }
+  }
+
+  @media (max-width:848px){
+    .countdownbox h2 span{
+      display:block;
+      margin: 0.5rem;
+      font-size: 1.8rem;
+    }
+  }
+  
+   /*b -- -- ?Presale Up Price? -- -- */
+  
+  @media (max-width:1284px){
+    .upbox3 h4{
+      padding-left: 5%;
+    }
+  }
+
+  @media (max-width:1111px){
+    .upbox3 h4{
+      padding-left: 5%;
+    }
+
+    .upbox3 {  
+     width: 70%;
+    }
+  }
+
+  @media (max-width:940px){
+    .upbox3 h4{
+      padding-left: 0;
+    }
+
+    .upbox3 {  
+     width: 75%;
+    }
+  }
+
+  @media (max-width:800px){
+    .upbox3 {  
+     width: 90%;
+    }
+  }

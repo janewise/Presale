@@ -1,0 +1,188 @@
+/* .nftmain{
+    margin-top: 2rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    border-radius:10px ;
+    background: rgba(0, 0, 0, 0.615);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nftlogo{
+    width: 120px;
+    height: 40px;
+    margin-bottom:10%;
+    margin-top:4%;
+}
+
+.isekai div{
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.isekai div img{
+    width: 100%;
+    } */
+
+
+    .nftmain {
+        margin-top: 2rem;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 100%;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.615);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .nftlogo {
+        width: 120px;
+        height: 40px;
+        margin-bottom: 10%;
+        margin-top: 4%;
+    }
+    
+.container-fluid{
+    padding: 0 5% !important;
+}
+
+    .isekai div {
+        text-align: center;
+        margin-bottom: 2rem;
+        cursor: pointer; /* Make sure it's clear that these are clickable */
+    }
+    
+    /* NFT list img */
+    .nft-item img {
+        width: 100%;
+    }
+    
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0B0A23;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-content {
+        width: 90%;
+        background:transparent;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 20px;
+        border: 2px solid #fff;
+        border-radius: 10px;
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+       position: relative;
+    }
+    
+    .modal-image {
+        width: 250px;
+        height: auto;
+        margin-bottom: 20px;
+        margin-top: 2rem;
+    }
+    
+    .modal-buttons button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* modal content detail*/
+    .modal-detail{
+width: 80%;
+margin-bottom:0.5rem;
+    }
+    .nftdetailbox{
+        margin-bottom: 1rem;
+    }
+.nftdetailbox div{ 
+    width: 95%;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #fff;
+}
+    /* buy nft in opensea and cancel button */
+    .buynft{
+        background-color: transparent;
+        color: #fff;
+        width: 90px;
+        height: 50px;
+        font-size: 3rem;
+        border-radius: 10px;
+        border: 2px solid #fff;
+    }
+    .buynft:hover{
+        background: linear-gradient(90deg, #1CB2FF 0%, #FF12EF 100%);
+        width: 92px;
+        border:none;
+      }
+
+    .cancel{
+        position:absolute;
+        top: 0%;
+        right: 0%;
+        padding: 5px;
+        border-radius: 0px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color:rgba(14, 13, 64, 0.867);
+    }
+    .cancel:hover{
+        cursor: pointer;
+        background-color: rgba(100, 15, 218, 0.488);
+    }
+
+/*a -- -- ?NFT list showing? -- -- */
+
+@media (max-width:768px) {
+    .modal-image {
+        width: 200px;
+        margin-top: 0;
+    }
+  }
+
+@media (max-width:650px) {
+    .container-fluid{
+        padding: 0 !important;
+    }
+  }
+
+ @media (max-width:400px) {
+    .nft-item {
+        padding: 0 5px;
+    }
+  }
+
+    /*b -- -- ?NFT detail box? -- -- */
+    @media (max-width:560px) { 
+.modal-detail{
+    width: 100%;
+        }  
+    }
+    
+@media (max-width:426px) {
+    .modal-content {
+        width: 95%;
+    }
+    
+  }
+    
+  @media (max-width:420px) {
+    .nftdetailbox div{ 
+        width: 100%;
+    }
+  }

@@ -1,0 +1,67 @@
+.SignIn-main{
+    width: 100%;
+    min-height: 100vh;
+    background-image:url("./upboxbg1.png");
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signIn-container{
+width:500px;
+padding: 20px;
+background-color: #322f2f79;
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+display: flex;
+text-align: center;
+justify-content: center;
+flex-direction: column;
+border-radius: 20px;
+}
+
+.signIn-container h2{
+    margin-bottom: 2rem;
+      }
+
+.In-form-group input[type="password"],
+.In-form-group input[type="email"]{
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.In-form-group input[type="password"]::-webkit-outer-spin-button ,
+.In-form-group input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+.In-form-group input{
+    color: #ffffff;
+    width: 70%;
+    padding: 5px 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.signinbtn{
+    margin-bottom: 1.5rem;
+
+}
+
+.reset-password-btn{
+    padding: 5px 10px;
+    background-color:red;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}

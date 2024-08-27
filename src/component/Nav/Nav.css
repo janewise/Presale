@@ -1,0 +1,85 @@
+.Navbgcolor{
+    background-color: rgba(2, 12, 36, 0.4);
+    z-index: 999;
+}
+
+.toggle_box {
+    position: absolute;
+    right: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.offcanvas-body {
+    width: 88%;
+}
+
+/* signin button */
+.signIn {
+    background: linear-gradient(90deg, #04EFFF 0%, #FF12EF 100%);
+    padding: 0px 10px;
+    border-radius: 10px;
+    color:#fff;
+    font-size: 1.3rem;
+    border: none;
+  }
+  
+
+.profile-icon{
+    border: none;
+    background-color: transparent;
+}
+/* bar */
+.navbar-toggler{
+margin-left: 1rem;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    /* Change the default icon to a white one */
+}
+
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0; 
+     box-shadow:none;
+    }
+/*2 -- -- ?navlink? -- -- */
+
+.nav-link{
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.nav-link:hover{
+    color: #fff;
+    background: linear-gradient(180deg, #FF45F3  0%,#5E00FF  63%, #2797FF 93%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-item .active {
+    background: linear-gradient(180deg, #2797FF 0%, #FF45F3 63%, #5E00FF 93%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+  }
+  
+/*3 -- -- ?offcanvas? -- -- */
+.offcanvas{
+    background: #020c2466;
+}
+
+@media (max-width:767px) {
+    .offcanvas{
+        background: #020c2466;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+  }
+
+
+.btn-close{
+    color: red;
+    background-color: #fff;
+}
