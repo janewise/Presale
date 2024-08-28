@@ -48,3 +48,14 @@
     background-color: #ff1a1a;
   }
   
+  @media (max-width:600px) {
+    .profile-box1 {
+      width: 80%;
+    }
+  }
+
+  @media (max-width:500px) {
+    .profile-box1 {
+      width: 95%;
+    }
+  }
