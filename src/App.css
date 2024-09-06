@@ -42,3 +42,82 @@
   margin-top: 5rem;
   padding-bottom: 1rem;
 }
+
+
+/* ---------- custom -------- */
+
+/* --- glass morphism  --- */
+
+.glassyMobileView{
+  background:rgba(180, 186, 244, 0.1);
+        backdrop-filter:blur(10px);
+        box-shadow:inset -15px 5px 10px rgba(255, 255, 255, 0.09),inset 10px 0 10px rgba(255, 255, 255, 0.15);
+        border:1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* wallet box styling*/
+button.css-1g5k5ll{
+  background:rgba(255, 255, 255,0.26);
+  border: none;
+}
+button.css-1g5k5ll:hover{
+  background:rgba(255, 255, 255,0.64);
+}
+
+.css-1mydkqc{
+  background: linear-gradient(90deg, #FF0088 0%, #0033E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+span.css-1wjcymt{
+  color: #303130;
+}
+
+/* button Gradient */
+.buttonEffect{
+  box-shadow:inset 4px 4px 3px rgba(41, 41, 41, 0.6);
+}
+
+.buttonEffect:hover{
+  box-shadow:4px 4px 3px rgba(41, 41, 41, 0.6);
+}
+/* media quaries for glassyMobileView */
+@media (max-width: 530px) {
+  .glassyMobileView{
+          max-width:460px;
+}}
+
+@media (max-width: 473px) {
+  .glassyMobileView{
+          max-width:400px;
+}}
+
+@media (min-width:390px) and (max-width: 470px) {
+  .glassyMobileView{
+          max-width:380px;
+}}
+
+@media (max-width:390px){
+  .glassyMobileView{
+          max-width:350px;
+}}
+
+@media (max-width:350px){
+  .glassyMobileView{
+          max-width:330px;
+  }
+}
+
+/* for connectwallet */
+@media (max-width:370px){
+  .connectWallet{
+   max-width:340px;
+  }
+ }
+
+@media (max-width:350px){
+ .connectWallet{
+  max-width:322px;
+ }
+}
+

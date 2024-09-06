@@ -45,10 +45,23 @@ margin-left: 1rem;
      box-shadow:none;
     }
 /*2 -- -- ?navlink? -- -- */
+.navbar-nav .dropdown-menu {
+    background-color: #38363866 !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: rgb(138, 4, 254);
+}
 
 .nav-link{
     color: #fff;
     font-size: 1.5rem;
+}
+
+.nav-link.show{
+    color:#fff;
 }
 
 .nav-link:hover{

@@ -40,7 +40,9 @@ import { Refferal } from './component/Refferal/refferal';
 import { SignIn } from "./component/logInandReguister/Signin";
 import { SignUp } from "./component/logInandReguister/Signup";
 import { Resetpass } from "./component/logInandReguister/resetpassword";
+import  NftStake from "./component/NftStake/nftstake";
 import Userprofile from "./component/logInandReguister/userprofile";
+import "./App.css"
 
 function App() {
   const location = useLocation();
@@ -61,6 +63,7 @@ function App() {
         <Route path="/nft" element={<Nft />}/>
         <Route path="/tx" element={<Tx />}/>
          <Route path="/refferal" element={<Refferal />}/>
+         <Route path="/nftstake" element={<NftStake />}/>
          <Route path="/profile" element={<Userprofile />}/>
       </Routes>
     </>
@@ -70,7 +73,7 @@ function App() {
 export default function RootApp() {
   return (
     <Router>
-      <App />
+   <App />
     </Router>
   );
 }
