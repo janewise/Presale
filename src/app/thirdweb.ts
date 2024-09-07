@@ -1,2 +1,2 @@
 
-export { ThirdwebProvider, ConnectEmbed } from 'thirdweb/react';
+export { ThirdwebProvider, ConnectEmbed, ConnectButton  } from 'thirdweb/react';

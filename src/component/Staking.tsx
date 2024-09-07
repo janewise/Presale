@@ -201,6 +201,7 @@
 //     );
 //   }
 // };
+
 import { useEffect, useState } from "react";
 import {ConnectButton,TransactionButton,useActiveAccount,useReadContract,} from "thirdweb/react";
 import { client } from "../app/client";
@@ -258,6 +259,9 @@ export const Staking = () => {
     params: [account?.address || ""],
   });
 
+  if (!account) {
+    return <div>Please connect your wallet to view staking information.</div>;
+  }
      if(account){
       return(
         <div
@@ -425,4 +429,5 @@ export const Staking = () => {
         </div>
       )
      }
+    
 }

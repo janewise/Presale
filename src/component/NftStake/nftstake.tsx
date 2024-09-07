@@ -35,7 +35,7 @@
 // }
 
 import React, { useState } from "react";
-import { ConnectEmbed } from "../../app/thirdweb";
+import { ConnectEmbed, ConnectButton } from "../../app/thirdweb";
 import { client } from "../../app/client";
 import { chain } from "../../app/chain";
 import { Staking } from "../Staking";
@@ -58,7 +58,7 @@ export default function NftStake() {
       margin: "20px auto",
       width: "500px",
     }}>
-      <ConnectEmbed
+      <ConnectButton
         client={client}
         chain={chain}
         // wallets={[
@@ -67,6 +67,7 @@ export default function NftStake() {
         //        createWallet("me.rainbow"),
         //      ]}
         wallets={wallets}
+        connectModal={{ size: "wide" }}
       />
       <Staking />
     </div>
