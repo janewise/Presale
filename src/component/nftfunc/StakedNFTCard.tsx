@@ -344,7 +344,7 @@ export const StakedNFTCard = ({ tokenId, refetchStakedInfo, refetchOwnedNFTs }: 
   const [isHovered, setIsHovered] = useState(false);
 
   // Use the hook to read the NFT data
-  const { data: nft, isLoading, error } = useReadContract(getNFT, {
+  const { data: nft, isLoading, error } = (useReadContract as any)(getNFT, {
     contract: NFT_CONTRACT,
     tokenId: tokenId,
   });
