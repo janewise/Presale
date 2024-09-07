@@ -313,7 +313,7 @@ export const NFTCard = ({
     prepareContractCall({
       contract: STAKING_CONTRACT,
       method: "stake",
-      params:[[nft.id]],  // Adjust based on the function signature
+      params:[nft.id],  // Adjust based on the function signature
     })
   }
   onTransactionConfirmed={() => {
