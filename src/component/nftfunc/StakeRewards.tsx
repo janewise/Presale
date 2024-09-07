@@ -56,7 +56,7 @@ export const StakeRewards = () => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent'
         }}>
-          Wallet Balance: {toEther(BigInt(tokenBalance!.toString()))}</p>
+          Wallet Balance:{tokenBalance ? toEther(BigInt(tokenBalance.toString())) : "0"}</p>
       )}
       <h2 style={{ marginBottom: "20px" }}>
         Stake Rewards: {stakedInfo && toEther(BigInt(stakedInfo[1].toString()))}
