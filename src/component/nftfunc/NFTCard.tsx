@@ -308,12 +308,32 @@ export const NFTCard = ({
               // >
               //   Stake
               // </TransactionButton>
-              <TransactionButton
-  transaction={() => 
-    prepareContractCall({
+//               <TransactionButton
+//   transaction={() => 
+//     prepareContractCall({
+//       contract: STAKING_CONTRACT,
+//       method: "stake",
+//       params:[nft.id],  // Adjust based on the function signature
+//     })
+//   }
+//   onTransactionConfirmed={() => {
+//     alert("Staked!");
+//     setIsModalOpen(false);
+//     refetchOwnedNFTs();
+//     refecthStakedInfo();
+//   }}
+//   style={{
+//     width: "100%",
+//   }}
+// >
+//   Stake
+// </TransactionButton>
+<TransactionButton
+  transaction={() =>
+    (prepareContractCall as any)({
       contract: STAKING_CONTRACT,
       method: "stake",
-      params:[nft.id],  // Adjust based on the function signature
+      params: [[nft.id]],
     })
   }
   onTransactionConfirmed={() => {
