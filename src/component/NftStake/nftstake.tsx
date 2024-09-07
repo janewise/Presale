@@ -41,13 +41,13 @@ import { chain } from "../../app/chain";
 import { Staking } from "../Staking";
 import { createWallet, inAppWallet } from "thirdweb/wallets";
 
-const wallets = [
-  createWallet("io.metamask"),
-  createWallet("com.coinbase.wallet"),
-  createWallet("me.rainbow"),
-  createWallet("io.rabby"),
-  createWallet("io.zerion.wallet"),
-];
+// const wallets = [
+//   createWallet("io.metamask"),
+//   createWallet("com.coinbase.wallet"),
+//   createWallet("me.rainbow"),
+//   createWallet("io.rabby"),
+//   createWallet("io.zerion.wallet"),
+// ];
 
 export default function NftStake() {
   return (
@@ -61,12 +61,6 @@ export default function NftStake() {
       <ConnectButton
         client={client}
         chain={chain}
-        // wallets={[
-        //       createWallet("io.metamask"),
-        //        createWallet("com.coinbase.wallet"),
-        //        createWallet("me.rainbow"),
-        //      ]}
-        wallets={wallets}
         connectModal={{ size: "wide" }}
       />
       <Staking />
