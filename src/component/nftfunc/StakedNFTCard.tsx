@@ -241,7 +241,6 @@
 //     </div>
 //   );
 // };
-
 import { MediaRenderer, TransactionButton, useReadContract } from "thirdweb/react";
 import { getNFT } from "thirdweb/extensions/erc721";
 import { NFT_CONTRACT, STAKING_CONTRACT } from "../../utils/contracts";
@@ -256,6 +255,9 @@ type StakedNFTCardProps = {
 };
 
 export const StakedNFTCard = ({ tokenId, refetchStakedInfo, refetchOwnedNFTs }: StakedNFTCardProps) => {
+  // State for hover effect
+  const [isHovered, setIsHovered] = useState(false);
+
   // Use the hook to read the NFT data
   const { data: nft, isLoading, error } = useReadContract(getNFT, {
     contract: NFT_CONTRACT,
@@ -271,9 +273,6 @@ export const StakedNFTCard = ({ tokenId, refetchStakedInfo, refetchOwnedNFTs }: 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
-  // State for hover effect
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
