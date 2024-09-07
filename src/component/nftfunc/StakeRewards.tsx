@@ -24,7 +24,7 @@ export const StakeRewards = () => {
     owner: account?.address || "",
   });
 
-  const { data: stakedInfo, refetch: refetchStakedInfo } = useReadContract({
+  const { data: stakedInfo, refetch: refetchStakedInfo } = (useReadContract  as any)({
     contract: STAKING_CONTRACT,
     method: "getStakeInfo",
     params: [account?.address || ""],
