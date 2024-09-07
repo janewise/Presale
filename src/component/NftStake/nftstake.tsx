@@ -58,10 +58,10 @@ export default function NftStake() {
       margin: "20px auto",
       width: "500px",
     }}>
-      <ConnectButton
+      <ConnectEmbed
         client={client}
         chain={chain}
-        connectModal={{ size: "wide" }}
+        // connectModal={{ size: "wide" }}
       />
       <Staking />
     </div>

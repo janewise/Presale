@@ -489,12 +489,9 @@ export const Staking = () => {
     params: [account?.address || ""],
   });
 
-  if (!account) {
-    return <div>Please connect your wallet to view staking information.</div>;
-  }
-
-  return (
-    <div
+  if (account) {
+    return (
+      <div
       style={{
         display: "flex",
         flexDirection: "column",
@@ -618,5 +615,11 @@ export const Staking = () => {
 
       <StakeRewards />
     </div>
+    )
+  }
+
+  return (
+    
+   <div>connect wallet</div>
   );
 };
