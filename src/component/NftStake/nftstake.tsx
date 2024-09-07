@@ -41,6 +41,7 @@ import { chain } from "../../app/chain";
 import { Staking } from "../Staking";
 import { createWallet, inAppWallet } from "thirdweb/wallets";
 
+
 export default function NftStake() {
   return (
     <div style={{
@@ -53,11 +54,11 @@ export default function NftStake() {
       <ConnectEmbed
         client={client}
         chain={chain}
-        wallets={[
-              createWallet("io.metamask"),
-               createWallet("com.coinbase.wallet"),
-               createWallet("me.rainbow"),
-             ]}
+        // wallets={[
+        //       createWallet("io.metamask"),
+        //        createWallet("com.coinbase.wallet"),
+        //        createWallet("me.rainbow"),
+        //      ]}
       />
       <Staking />
     </div>
