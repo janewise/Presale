@@ -8,7 +8,7 @@
 // });
 
 import { createThirdwebClient } from "thirdweb"; // Correct import from thirdweb SDK
-import { ConnectButton } from "thirdweb/react";
+
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID as string;
 

@@ -284,7 +284,7 @@ export const Staking = () => {
           }}
         >
           <p style={{ marginRight: "20px",color:"#7AE2F9"}}>Claim NFT to Stake</p>
-          <TransactionButton  
+          {/* <TransactionButton  
             transaction={() =>
               claimTo({
                 contract: NFT_CONTRACT,
@@ -315,7 +315,27 @@ export const Staking = () => {
             }}>
                Claim NFT
               </span>
-          </TransactionButton>
+          </TransactionButton> */}
+                    <TransactionButton
+                        transaction={() => (
+                            claimTo({
+                                contract: NFT_CONTRACT,
+                                to: account?.address || "",
+                                quantity: BigInt(1)
+                            })
+                        )}
+                        onTransactionConfirmed={() => {
+                            alert("NFT claimed!");
+                            getOwnedNFTs();
+                        }}
+                        style={{
+                            fontSize: "12px",
+                            backgroundColor: "#333",
+                            color: "#fff",
+                            padding: "10px 20px",
+                            borderRadius: "10px",
+                        }}
+                    >Claim NFT</TransactionButton>
         </div>
         {/*  */}
         <hr
