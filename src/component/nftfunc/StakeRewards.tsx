@@ -19,7 +19,7 @@ export const StakeRewards = () => {
     data: tokenBalance,
     isLoading: isTokenBalanceLoading,
     refetch: refetchTokenBalance,
-  } = useReadContract(balanceOf, {
+  } = (useReadContract  as any)(balanceOf, {
     contract: REWARD_TOKEN_CONTRACT,
     owner: account?.address || "",
   });
@@ -63,7 +63,7 @@ export const StakeRewards = () => {
       </h2>
       <TransactionButton
         transaction={() =>
-          prepareContractCall({
+          (prepareContractCall as any)({
             contract: STAKING_CONTRACT,
             method: "claimRewards",
           })
