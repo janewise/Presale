@@ -379,7 +379,7 @@ export const StakedNFTCard = ({ tokenId, refetchStakedInfo, refetchOwnedNFTs }: 
 
       <TransactionButton
         transaction={() =>
-          prepareContractCall({
+          (prepareContractCall as any)({
             contract: STAKING_CONTRACT,
             method: "withdraw",
             params: [[tokenId]],
