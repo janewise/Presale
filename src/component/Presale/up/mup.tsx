@@ -98,7 +98,7 @@ export function Mup() {
         {/* Progress bar and total raised */}
         <div className="mcountdownbox">
           <h2>
-            <span>Total Raised :</span> {R1Tokenbuy} USDT / 500,000 USDT
+            <span>Total Raised :</span> {R1Tokenbuy} USDT / 10,000 USDT
           </h2>
           <div className="bar" style={{ width: `${percentage}%` }}></div>
           <h3 className="showpercent">{percentage.toFixed(2)}%</h3>

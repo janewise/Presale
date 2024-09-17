@@ -56,6 +56,9 @@ export async function initializeRound1() {
       maxTokenR1: 10000,
       R1start: new Date().toISOString(), // Set this to the actual UTC start time
       R1end: new Date().toISOString(),   // Set this to the actual UTC end time
+      R1priceusdt:0.1,
+      minR1buyusdt: 15,
+      maxR1buyusdt: 50,
       R1Tokenbuy: 0  // This value will change dynamically
     });
 
