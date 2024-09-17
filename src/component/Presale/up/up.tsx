@@ -48,15 +48,14 @@ export function Up() {
     {/* rightcountdown */}
     <div className="rightcountdown">
     <Countdown targetDate="2024-10-31T23:59:59" />
-      {/* <div className="countdownbox">
-        <h2><span>Total Raised :</span> 0 USDT / 500,000 USDT</h2>
-        <h3>43</h3>
-      </div> */}
       <div className="countdownbox">
           <h2>
             <span>Total Raised :</span> {R1Tokenbuy} USDT / 10,000 USDT
           </h2>
-          <div className="bar" style={{ width: `${percentage}%` }}></div>
+          <div className="parentbar">
+      <div className="childbar"  style={{ width: `${percentage}%` ,backgroundColor:"black", height: '100%',borderRadius:50}}>
+      </div>
+    </div>
           <h3 className="showpercent">{percentage.toFixed(2)}%</h3>
         </div>
       <div className="upbox3">

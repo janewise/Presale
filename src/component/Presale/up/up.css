@@ -61,7 +61,7 @@ text-align:center;
 } */
 
 .countdownbox h3{
-   margin: 3rem 0;
+   margin: 1rem 0 2rem 0;
 }
 
 /*  */
@@ -108,6 +108,23 @@ text-align:center;
   }
    */
 
+  .parentbar {
+    height: 15px;
+    margin-top: 2rem;
+    width: 80%;
+   background-color: #fff;
+   border-radius: 50px;
+    margin: 50;
+  }
+ 
+/* .childbar{
+    height: '100%',
+    width: `${progress}%`,
+    backgroundColor: bgcolor,
+   borderRadius:40,
+    textAlign: 'right'
+  } */
+
   /*a -- -- ?Presale Up Price limit bar? -- -- */
 
   @media (max-width:1136px) {
@@ -118,7 +135,7 @@ text-align:center;
 
   @media (max-width:1053px) {
     .countdownbox h2{
-     font-size: 1.5rem;
+     font-size: 1.2rem;
      font-weight: 400;
   }
   }
@@ -127,7 +144,7 @@ text-align:center;
     .countdownbox h2 span{
       display:block;
       margin: 0.5rem;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
   }
   
