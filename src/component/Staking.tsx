@@ -206,7 +206,7 @@ import { useEffect, useState } from "react";
 import {ConnectButton,TransactionButton,useActiveAccount,useReadContract,} from "thirdweb/react";
 import { client } from "../app/client";
 import { chain } from "../app/chain";
- import { claimTo,getNFTs,ownerOf,totalSupply,} from "thirdweb/extensions/erc721";
+ import { claimTo,getNFTs,ownerOf,totalSupply} from "thirdweb/extensions/erc721";
  import { NFT_CONTRACT, STAKING_CONTRACT } from "../utils/contracts";
  import { NFT } from "thirdweb";
 //
