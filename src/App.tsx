@@ -43,6 +43,7 @@ import { Resetpass } from "./component/logInandReguister/resetpassword";
 import  NftStake from "./component/NftStake/nftstake";
 import Userprofile from "./component/logInandReguister/userprofile";
 import "./App.css"
+import { AuthProvider } from "./auth";
 import { initializeRound1 } from "./firebaseFunctions"; 
 
 function App() {
@@ -79,7 +80,7 @@ function App() {
 export default function RootApp() {
   return (
     <Router>
-   <App />
+      <AuthProvider><App /></AuthProvider>
     </Router>
   );
 }

@@ -57,6 +57,7 @@
       }
       
       input[type="email"],
+      input[type="any"],
       input[type="number"] {
         padding: 7px 2px;
         width: 235px;
@@ -81,11 +82,13 @@ input[type="number"] {
 }
       
       input[type="email"],
+      input[type="any"],
       input[type="number"]:focus {
         border-bottom-color: #4A0ECB;
       }
       
       input[type="email"],
+      input[type="any"],
       input[type="number"]:hover {
         border-bottom-color: #73EAF3;
       }
@@ -109,6 +112,20 @@ input[type="number"] {
         color: #ffffff;
       }
       
+      .submit-btn-unactive{
+        margin: 40px auto;
+        display: block;
+        font-weight: 500;
+        padding: 5px 20px;
+        background-color: #252525;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        text-align: center;
+      }
+
 /*a -- -- ?Presale down? -- -- */
 
       @media (max-width:438px) {

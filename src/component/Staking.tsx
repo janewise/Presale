@@ -428,7 +428,7 @@ export const Staking = () => {
       )
      }
      return(
-      <div>connect</div>
+      <div>Connect Metamask In Profile</div>
      )
     
 }

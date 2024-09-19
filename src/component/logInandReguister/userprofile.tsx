@@ -5,6 +5,9 @@ import { onAuthStateChanged, signOut } from "firebase/auth"; // Import necessary
 import { ref, get, child } from "firebase/database"; // Import Firebase Realtime Database functions
 import { db } from "../../firebase"; // Import your Firebase Realtime Database instance
 import "./userprofile.css";
+import { ConnectEmbed, ConnectButton } from "../../app/thirdweb";
+import { client } from "../../app/client";
+import { chain } from "../../app/chain";
 
 export default function Userprofile() {
   const [email, setEmail] = useState<string | null>(null);
@@ -53,6 +56,12 @@ export default function Userprofile() {
           <p><strong>Telegram ID:</strong> {telegramId}</p>
           <p><strong>Email:</strong> {email}</p>
         </div>
+
+        <ConnectButton
+        client={client}
+        chain={chain}
+        // connectModal={{ size: "wide" }}
+      />
         <button className="btn btn-logout" onClick={handleLogout}>
           Logout
         </button>
