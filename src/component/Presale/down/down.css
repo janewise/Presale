@@ -115,6 +115,7 @@ input[type="number"] {
       .submit-btn-unactive{
         margin: 40px auto;
         display: block;
+        width: 180px;
         font-weight: 500;
         padding: 5px 20px;
         background-color: #252525;

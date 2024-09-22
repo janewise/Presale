@@ -59,6 +59,7 @@ export function Up() {
           <h3 className="showpercent">{percentage.toFixed(2)}%</h3>
         </div>
       <div className="upbox3">
+        <h3>Round1 Start</h3>
     <h4>Batch Price : $ 0.01</h4>
     <h4>Min Price : $ 15</h4>
     <h4>Max Price : $ 50</h4>

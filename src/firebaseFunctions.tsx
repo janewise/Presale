@@ -123,12 +123,14 @@ export async function initializeRound1() {
     if (!snapshot.exists()) {
       // Set initial data if it doesn't exist
       await set(round1Ref, {
-        maxTokenR1: 100,
-        R1start: new Date().toISOString(), // You should replace with actual start time
-        R1end: new Date().toISOString(),   // You should replace with actual end time
-        R1priceusdt: 0.1,
-        minR1buyusdt: 10,
+        maxTokenR1: 10000,
+        R1start: new Date("2024-09-20").toISOString(), // You should replace with actual start time
+        R1end: new Date("2024-09-21").toISOString(),   // You should replace with actual end time
+        R1priceusdt: 0.01,
+        minR1buyusdt: 15,
         maxR1buyusdt: 50,
+        R1roundStatusstart:"Round1 Start",
+        R1roundStatusend:"Round1 End",
         R1Tokenbuy: 0 // This will change as tokens are bought
       });
 
