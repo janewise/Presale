@@ -1065,9 +1065,29 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
     console.log(isSaleActive)
 
+    const handleCopy = () => {
+      navigator.clipboard.writeText("0x0C68b2445027196599Ba34012Acf55fE90D45B3E")
+        .then(() => {
+          alert('Address copied to clipboard!');
+        })
+        .catch(err => {
+          console.error('Failed to copy: ', err);
+        });
+    };
+
   return (
     <div className="downmain">
+     
       <div className="downbox1">
+      <h2>Round 1</h2>
+      <div>
+      <p className="providewallet">0x0C68b2445027196599Ba34012Acf55fE90D45B3E</p> 
+      <span onClick={handleCopy} className="providewalleticon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" fill="currentColor" className="bi bi-copy" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+</svg>
+</span>
+      </div>
+     
         <h3 style={{ fontSize: "42px", marginTop: "2rem", fontWeight: "400", marginBottom: "1rem" }}>Buy Presale</h3>
         <form className="custom-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -1075,7 +1095,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             <input type="email" id="saleemail" name="saleemail" value={user?.email || ""} />
             <br /><br />
             <label htmlFor="saleAdress">Adress: </label>
-            <input type="any" id="sendAdr" name="sendAdr" value={sendAdr} onChange={handleAdrChange} required placeholder="wallet adress" />
+            <input type="any" id="sendAdr" name="sendAdr" value={sendAdr} onChange={handleAdrChange} required placeholder="user wallet adress" />
             <br /><br />
             <label htmlFor="saleTid">Telegram ID: </label>
             <input type="number" id="saleTid" name="saleTid" value={saleTelegram} onChange={handleTlegramChange} required />

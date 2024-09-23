@@ -129,8 +129,6 @@ export async function initializeRound1() {
         R1priceusdt: 0.01,
         minR1buyusdt: 15,
         maxR1buyusdt: 50,
-        R1roundStatusstart:"Round1 Start",
-        R1roundStatusend:"Round1 End",
         R1Tokenbuy: 0 // This will change as tokens are bought
       });
 

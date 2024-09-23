@@ -101,7 +101,7 @@ export function Mup() {
             <span>Total Raised :</span> {R1Tokenbuy} USDT / 10,000 USDT
           </h2>
           <div className="mparentbar">
-      <div className="childbar"  style={{ width: `${percentage}%` ,backgroundColor:"black", height: '100%',borderRadius:50}}>
+      <div className="childbar"  style={{ width: `${percentage}%` ,background:"linear-gradient(90deg, #1CB2FF 0%, #FF12EF 100%)", height: '100%',borderRadius:50}}>
       </div>
       </div>
           <h3 className="showpercent">{percentage.toFixed(2)}%</h3>

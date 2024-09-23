@@ -76,6 +76,19 @@ input[type="email"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+/* provide wallet */
+.providewallet{
+  display: inline;
+  font-size: 16px;
+  padding-right:5px;
+}
+
+.providewalleticon{
+  border: 1px solid white;
+  padding: 1px 4px 4px 4px;
+  border-radius: 4px;
+}
+
 /* Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
@@ -145,4 +158,11 @@ input[type="number"] {
 input[type="number"] {
   width: 205px;
 }
+}
+
+/* wallet provided media qauries */
+@media (max-width:485px) {
+  .providewallet{
+    font-size: 13px;
+  }
 }

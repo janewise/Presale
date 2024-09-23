@@ -53,13 +53,12 @@ export function Up() {
             <span>Total Raised :</span> {R1Tokenbuy} USDT / 10,000 USDT
           </h2>
           <div className="parentbar">
-      <div className="childbar"  style={{ width: `${percentage}%` ,backgroundColor:"black", height: '100%',borderRadius:50}}>
+      <div className="childbar"  style={{ width: `${percentage}%` ,background:"linear-gradient(90deg, #1CB2FF 0%, #FF12EF 100%)", height: '100%',borderRadius:50}}>
       </div>
     </div>
           <h3 className="showpercent">{percentage.toFixed(2)}%</h3>
         </div>
       <div className="upbox3">
-        <h3>Round1 Start</h3>
     <h4>Batch Price : $ 0.01</h4>
     <h4>Min Price : $ 15</h4>
     <h4>Max Price : $ 50</h4>
