@@ -44,7 +44,7 @@ import  NftStake from "./component/NftStake/nftstake";
 import Userprofile from "./component/logInandReguister/userprofile";
 import "./App.css"
 import { AuthProvider } from "./auth";
-import { initializeRound1 } from "./firebaseFunctions"; 
+import { initializeRound1,initializeRound2,initializeRound3 } from "./firebaseFunctions"; 
 
 function App() {
   const location = useLocation();
@@ -52,6 +52,12 @@ function App() {
     // Call the Round1 initialization on app start
     useEffect(() => {
       initializeRound1();
+    }, []);
+    useEffect(() => {
+      initializeRound2();
+    }, []);
+    useEffect(() => {
+      initializeRound3();
     }, []);
 
   // Determine if the current route should hide the Nav component

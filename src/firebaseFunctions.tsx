@@ -123,9 +123,9 @@ export async function initializeRound1() {
     if (!snapshot.exists()) {
       // Set initial data if it doesn't exist
       await set(round1Ref, {
-        maxTokenR1: 10000,
-        R1start: new Date("2024-09-20").toISOString(), // You should replace with actual start time
-        R1end: new Date("2024-09-21").toISOString(),   // You should replace with actual end time
+        maxTokenR1: 20000,
+        R1start: new Date("2024-09-28").toISOString(), // You should replace with actual start time
+        R1end: new Date("2024-09-29").toISOString(),   // You should replace with actual end time
         R1priceusdt: 0.01,
         minR1buyusdt: 15,
         maxR1buyusdt: 50,
@@ -138,6 +138,60 @@ export async function initializeRound1() {
     }
   } catch (error) {
     console.error("Error initializing Round1: ", error);
+  }
+}
+
+export async function initializeRound2() {
+  try {
+    // Check if Round1 already exists
+    const round1Ref = ref(db, 'Round2');
+    const snapshot = await get(round1Ref);
+    
+    if (!snapshot.exists()) {
+      // Set initial data if it doesn't exist
+      await set(round1Ref, {
+        maxTokenR2: 15000,
+        R2start: new Date("2024-09-28").toISOString(), // You should replace with actual start time
+        R2end: new Date("2024-09-29").toISOString(),   // You should replace with actual end time
+        R2priceusdt: 0.02,
+        minR2buyusdt: 15,
+        maxR2buyusdt: 50,
+        R2Tokenbuy: 0 // This will change as tokens are bought
+      });
+
+      console.log("Round2 initialized successfully!");
+    } else {
+      console.log("Round2 already exists.");
+    }
+  } catch (error) {
+    console.error("Error initializing Round2: ", error);
+  }
+}
+
+export async function initializeRound3() {
+  try {
+    // Check if Round1 already exists
+    const round1Ref = ref(db, 'Round3');
+    const snapshot = await get(round1Ref);
+    
+    if (!snapshot.exists()) {
+      // Set initial data if it doesn't exist
+      await set(round1Ref, {
+        maxTokenR3: 10000,
+        R3start: new Date("2024-10-3").toISOString(), // You should replace with actual start time
+        R3end: new Date("2024-10-4").toISOString(),   // You should replace with actual end time
+        R3priceusdt: 0.03,
+        minR3buyusdt: 15,
+        maxR3buyusdt: 50,
+        R3Tokenbuy: 0 // This will change as tokens are bought
+      });
+
+      console.log("Round3 initialized successfully!");
+    } else {
+      console.log("Round3 already exists.");
+    }
+  } catch (error) {
+    console.error("Error initializing Round3: ", error);
   }
 }
 
