@@ -51,7 +51,7 @@ import { db } from "../../../firebase"; // Import Firebase db
 import { ref, onValue } from "firebase/database"; // Import necessary Firebase functions
 
 export function Mup() {
-  const maxTokenR1 = 10000; // Set this to the same value in your database
+  const maxTokenR1 = 20000; // Set this to the same value in your database
   const [R1Tokenbuy, setR1Tokenbuy] = useState(0); // State to store current R1Tokenbuy value
   const [percentage, setPercentage] = useState(0); // State for the progress bar percentage
 
@@ -98,7 +98,7 @@ export function Mup() {
         {/* Progress bar and total raised */}
         <div className="mcountdownbox">
           <h2>
-            <span>Total Raised :</span> {R1Tokenbuy} USDT / 10,000 USDT
+            <span>Total Raised :</span> {R1Tokenbuy} USDT / 20,000 USDT
           </h2>
           <div className="mparentbar">
       <div className="childbar"  style={{ width: `${percentage}%` ,background:"linear-gradient(90deg, #1CB2FF 0%, #FF12EF 100%)", height: '100%',borderRadius:50}}>

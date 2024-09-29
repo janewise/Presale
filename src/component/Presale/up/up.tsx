@@ -10,7 +10,7 @@ import { ref, onValue } from "firebase/database"; // Import necessary Firebase f
 
 export function Up() {
 
-  const maxTokenR1 = 10000; // Set this to the same value in your database
+  const maxTokenR1 = 20000; // Set this to the same value in your database
   const [R1Tokenbuy, setR1Tokenbuy] = useState(0); // State to store current R1Tokenbuy value
   const [percentage, setPercentage] = useState(0); // State for the progress bar percentage
 
@@ -50,7 +50,7 @@ export function Up() {
     <Countdown targetDate="2024-10-31T23:59:59" />
       <div className="countdownbox">
           <h2>
-            <span>Total Raised :</span> {R1Tokenbuy} USDT / 10,000 USDT
+            <span>Total Raised :</span> {R1Tokenbuy} USDT / 20,000 USDT
           </h2>
           <div className="parentbar">
       <div className="childbar"  style={{ width: `${percentage}%` ,background:"linear-gradient(90deg, #1CB2FF 0%, #FF12EF 100%)", height: '100%',borderRadius:50}}>

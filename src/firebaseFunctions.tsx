@@ -125,7 +125,7 @@ export async function initializeRound1() {
       await set(round1Ref, {
         maxTokenR1: 20000,
         R1start: new Date("2024-09-28").toISOString(), // You should replace with actual start time
-        R1end: new Date("2024-09-29").toISOString(),   // You should replace with actual end time
+        R1end: new Date("2024-09-30").toISOString(),   // You should replace with actual end time
         R1priceusdt: 0.01,
         minR1buyusdt: 15,
         maxR1buyusdt: 50,
@@ -151,8 +151,8 @@ export async function initializeRound2() {
       // Set initial data if it doesn't exist
       await set(round1Ref, {
         maxTokenR2: 15000,
-        R2start: new Date("2024-09-28").toISOString(), // You should replace with actual start time
-        R2end: new Date("2024-09-29").toISOString(),   // You should replace with actual end time
+        R2start: new Date("2024-10-1").toISOString(), // You should replace with actual start time
+        R2end: new Date("2024-10-2").toISOString(),   // You should replace with actual end time
         R2priceusdt: 0.02,
         minR2buyusdt: 15,
         maxR2buyusdt: 50,

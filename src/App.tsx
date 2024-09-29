@@ -44,7 +44,9 @@ import  NftStake from "./component/NftStake/nftstake";
 import Userprofile from "./component/logInandReguister/userprofile";
 import "./App.css"
 import { AuthProvider } from "./auth";
-import { initializeRound1,initializeRound2,initializeRound3 } from "./firebaseFunctions"; 
+import { initializeRound1} from "./firebaseFunctions"; 
+import { initializeRound2} from "./firebaseFunctions"; 
+import { initializeRound3} from "./firebaseFunctions"; 
 
 function App() {
   const location = useLocation();
