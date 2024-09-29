@@ -1015,7 +1015,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       };
 
       // Reference to store under Firebase Auth User (uid) and their Metamask address
-      const userR1Ref = ref(db, `Round1/R1buyer/users/${user.uid}/R1buylist`);
+      const userR1Ref = ref(db, `Round1/R1buyer/users/${user.uid}`);
       
       // Push new entry under the current user's R1buylist
       await push(userR1Ref, newPurchase);
