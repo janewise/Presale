@@ -47,6 +47,7 @@ import { AuthProvider } from "./auth";
 import { initializeRound1} from "./firebaseFunctions"; 
 import { initializeRound2} from "./firebaseFunctions"; 
 import { initializeRound3} from "./firebaseFunctions"; 
+import { Roadmap } from "./component/Roadmap/roadmap";
 
 function App() {
   const location = useLocation();
@@ -80,6 +81,7 @@ function App() {
          <Route path="/refferal" element={<Refferal />}/>
          <Route path="/nftstake" element={<NftStake />}/>
          <Route path="/profile" element={<Userprofile />}/>
+         <Route path="/roadmap" element={<Roadmap />}/>
       </Routes>
     </>
   );

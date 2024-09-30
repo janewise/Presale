@@ -35,6 +35,9 @@ export function Navlink() {
           <NavLink to="/tx" className={({ isActive }) => isActive ? "link active nav-link" : "link nav-link"}>Tx</NavLink>
           </li>
           <li className="nav-item">
+          <NavLink to="/roadmap" className={({ isActive }) => isActive ? "link active nav-link" : "link nav-link"}>Roadmap</NavLink>
+          </li>
+          <li className="nav-item">
           <NavLink to="/refferal" className={({ isActive }) => isActive ? "link active nav-link" : "link nav-link"}>Refferal</NavLink>
           </li>
           
