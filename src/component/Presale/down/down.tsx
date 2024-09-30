@@ -890,6 +890,17 @@ export function Down() {
     maxTokenR1: 0,
   });
 
+  const [round2Data, setRound2Data] = useState({
+    R2priceusdt: 0,
+    minR2buyusdt: 0,
+    maxR2buyusdt: 0,
+    R2Tokenbuy: 0,
+    R2start: "",
+    R2end: "",
+    maxTokenR2: 0,
+  });
+
+
   const [saleUsdt, setSaleUsdt] = useState<number | "">(0);
   const [saleMyg, setSaleMyg] = useState<number | "">(0);
   const [sendAdr, setSendAdr] = useState<string>("");
@@ -921,6 +932,32 @@ export function Down() {
       }
     };
     fetchRound1Data();
+  }, []);
+
+  useEffect(() => {
+    const fetchRound2Data = async () => {
+      try {
+        const round2Ref = ref(db, "Round2");
+        const snapshot = await get(round2Ref);
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setRound2Data({
+            R2priceusdt: data.R2priceusdt,
+            minR2buyusdt: data.minR2buyusdt,
+            maxR2buyusdt: data.maxR2buyusdt,
+            R2Tokenbuy: data.R2Tokenbuy,
+            R2start: data.R2start,
+            R2end: data.R2end,
+            maxTokenR2: data.maxTokenR2,
+          });
+        } else {
+          console.error("No Round2 data found");
+        }
+      } catch (error) {
+        console.error("Error fetching Round2 data: ", error);
+      }
+    };
+    fetchRound2Data();
   }, []);
 
   // Handle USDT change and calculate MYG
@@ -1021,22 +1058,28 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       await push(userR1Ref, newPurchase);
 
       // After successfully submitting the purchase, update the total R1Tokenbuy
-      const round1Ref = ref(db, "Round1");
+      //const round1Ref = ref(db, "Round1");
+      const round2Ref = ref(db, "Round2");
 
       // Fetch current R1Tokenbuy value
-      const snapshot = await get(round1Ref);
+   //   const snapshot = await get(round1Ref);
+   const snapshot = await get(round2Ref);
       if (snapshot.exists()) {
         const currentData = snapshot.val();
-        const currentR1Tokenbuy = currentData.R1Tokenbuy || 0;
+        //const currentR1Tokenbuy = currentData.R1Tokenbuy || 0;
+        const currentR2Tokenbuy = currentData.R2Tokenbuy || 0;
 
         // Increment R1Tokenbuy by saleMyg value
-        const updatedR1Tokenbuy = currentR1Tokenbuy + saleMyg;
+       // const updatedR1Tokenbuy = currentR1Tokenbuy + saleMyg;
+       const updatedR2Tokenbuy = currentR2Tokenbuy + saleMyg;
+
 
         // Update the R1Tokenbuy in Firebase
-        await update(round1Ref, { R1Tokenbuy: updatedR1Tokenbuy });
+       // await update(round1Ref, { R1Tokenbuy: updatedR1Tokenbuy });
+       await update(round2Ref, { R2Tokenbuy: updatedR2Tokenbuy });
 
-        console.log("R1Tokenbuy updated successfully!");
-
+        //console.log("R1Tokenbuy updated successfully!");
+        console.log("R2Tokenbuy updated successfully!");
         // Reset form values after successful submission
         setSaleUsdt(0);
         setSaleMyg(0);
@@ -1046,7 +1089,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         // Refresh page or component after submission
         window.location.reload(); // Refresh the page to get the updated token data
       } else {
-        console.error("Round1 data not found");
+        // console.error("Round1 data not found");
+        console.error("Round2 data not found");
       }
 
     } catch (error) {
@@ -1079,7 +1123,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     <div className="downmain">
      
       <div className="downbox1">
-      <h2>Round 1</h2>
+      <h2>Round 2</h2>
       <div>
       <p className="providewallet">0x0C68b2445027196599Ba34012Acf55fE90D45B3E</p> 
       <span onClick={handleCopy} className="providewalleticon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" fill="currentColor" className="bi bi-copy" viewBox="0 0 16 16">

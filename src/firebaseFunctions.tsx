@@ -144,12 +144,12 @@ export async function initializeRound1() {
 export async function initializeRound2() {
   try {
     // Check if Round1 already exists
-    const round1Ref = ref(db, 'Round2');
-    const snapshot = await get(round1Ref);
+    const round2Ref = ref(db, 'Round2');
+    const snapshot = await get(round2Ref);
     
     if (!snapshot.exists()) {
       // Set initial data if it doesn't exist
-      await set(round1Ref, {
+      await set(round2Ref, {
         maxTokenR2: 15000,
         R2start: new Date("2024-10-1").toISOString(), // You should replace with actual start time
         R2end: new Date("2024-10-2").toISOString(),   // You should replace with actual end time
@@ -171,12 +171,12 @@ export async function initializeRound2() {
 export async function initializeRound3() {
   try {
     // Check if Round1 already exists
-    const round1Ref = ref(db, 'Round3');
-    const snapshot = await get(round1Ref);
+    const round3Ref = ref(db, 'Round3');
+    const snapshot = await get(round3Ref);
     
     if (!snapshot.exists()) {
       // Set initial data if it doesn't exist
-      await set(round1Ref, {
+      await set(round3Ref, {
         maxTokenR3: 10000,
         R3start: new Date("2024-10-3").toISOString(), // You should replace with actual start time
         R3end: new Date("2024-10-4").toISOString(),   // You should replace with actual end time
