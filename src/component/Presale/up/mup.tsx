@@ -53,8 +53,8 @@ import { ref, onValue } from "firebase/database"; // Import necessary Firebase f
 export function Mup() {
  // const maxTokenR1 = 20000; // Set this to the same value in your database
  // const [R1Tokenbuy, setR1Tokenbuy] = useState(0); // State to store current R1Tokenbuy value
-  const maxTokenR2 = 15000; // Set this to the same value in your database
-  const [R2Tokenbuy, setR2Tokenbuy] = useState(0); 
+  const maxTokenR3 = 10000; // Set this to the same value in your database
+  const [R3Tokenbuy, setR3Tokenbuy] = useState(0); 
   const [percentage, setPercentage] = useState(0); // State for the progress bar percentage
 
   // // Fetch R1Tokenbuy from Firebase
@@ -71,11 +71,11 @@ export function Mup() {
 
    // Fetch R2Tokenbuy from Firebase
    useEffect(() => {
-    const round2Ref = ref(db, "Round2/R2Tokenbuy");
+    const round3Ref = ref(db, "Round3/R3Tokenbuy");
 
-    const unsubscribe = onValue(round2Ref, (snapshot) => {
+    const unsubscribe = onValue(round3Ref, (snapshot) => {
       const data = snapshot.val();
-      setR2Tokenbuy(data || 0); // Update R1Tokenbuy from Firebase, default to 0 if null
+      setR3Tokenbuy(data || 0); // Update R1Tokenbuy from Firebase, default to 0 if null
     });
 
     return () => unsubscribe(); // Cleanup subscription on component unmount
@@ -89,9 +89,9 @@ export function Mup() {
 
   // Calculate the percentage whenever R2Tokenbuy changes
   useEffect(() => {
-    const calculatedPercentage = Math.min((R2Tokenbuy / maxTokenR2) * 100, 100); // Cap at 100%
+    const calculatedPercentage = Math.min((R3Tokenbuy / maxTokenR3) * 100, 100); // Cap at 100%
     setPercentage(calculatedPercentage);
-  }, [R2Tokenbuy]);
+  }, [R3Tokenbuy]);
 
   return (
     <div className="mainMup">
@@ -118,7 +118,7 @@ export function Mup() {
         {/* Progress bar and total raised */}
         <div className="mcountdownbox">
           <h2>
-            <span>Total Raised :</span> {R2Tokenbuy} USDT / 15,000 USDT
+            <span>Total Raised :</span> {R3Tokenbuy} USDT / 10,000 USDT
           </h2>
           <div className="mparentbar">
       <div className="childbar"  style={{ width: `${percentage}%` ,background:"linear-gradient(90deg, #1CB2FF 0%, #FF12EF 100%)", height: '100%',borderRadius:50}}>
@@ -128,7 +128,7 @@ export function Mup() {
         </div>
       </div>
       <div className="mupbox3">
-        <h4>Batch Price : $ 0.02</h4>
+        <h4>Batch Price : $ 0.03</h4>
         <h4>Min Price : $ 15</h4>
         <h4>Max Price : $ 50</h4>
       </div>

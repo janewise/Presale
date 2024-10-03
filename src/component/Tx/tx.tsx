@@ -43,7 +43,58 @@ export function Tx() {
 
     fetchTransactionHistory();
   }, [user]);
+//r2
+  useEffect(() => {
+    const fetchTransactionHistory = async () => {
+      if (!user) return; // Ensure user is authenticated
 
+      try {
+        const transactionRef = ref(db, `Round2/R2buyer/users/${user.uid}`);
+        const snapshot = await get(transactionRef);
+
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          const transactionArray = Object.values(data) as Transaction[]; // Convert the object to an array
+          setTransactions(transactionArray);
+        } else {
+          setError("No transaction history found.");
+        }
+      } catch (error) {
+        setError("Error fetching transaction history.");
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTransactionHistory();
+  }, [user]);
+  //r3
+  useEffect(() => {
+    const fetchTransactionHistory = async () => {
+      if (!user) return; // Ensure user is authenticated
+
+      try {
+        const transactionRef = ref(db, `Round3/R3buyer/users/${user.uid}/R3buylist`);
+        const snapshot = await get(transactionRef);
+
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          const transactionArray = Object.values(data) as Transaction[]; // Convert the object to an array
+          setTransactions(transactionArray);
+        } else {
+          setError("No transaction history found.");
+        }
+      } catch (error) {
+        setError("Error fetching transaction history.");
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTransactionHistory();
+  }, [user]);
    // Debugging: Check if senderAddress exists in the transaction
 
   
