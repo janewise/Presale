@@ -21,7 +21,7 @@ export function Home() {
         {/* two button */}
         <div className="twobtn">
           <NavLink to="/presale" className="homesale"><p>Buy PreSale</p></NavLink>
-          <NavLink to="/nft" className="homesale"><p>Buy NFT</p></NavLink>     
+          <NavLink to="/whitepaper" className="homesale"><p>White Paper</p></NavLink>     
         </div>
       </div>
 

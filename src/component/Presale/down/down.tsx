@@ -874,276 +874,6 @@
 
 //R1
 
-// import React, { useState, useEffect } from "react";
-// import { ref, push, get, update } from "firebase/database";
-// import { db } from "../../../firebase";
-// import { useAuth } from "../../../auth";
-// import "./down.css";
-
-// export function Down() {
-//   const { user } = useAuth(); // Get the Firebase Auth user
-//   const [round1Data, setRound1Data] = useState({
-//     R1priceusdt: 0,
-//     minR1buyusdt: 0,
-//     maxR1buyusdt: 0,
-//     R1Tokenbuy: 0,
-//     R1start: "",
-//     R1end: "",
-//     maxTokenR1: 0,
-//   });
-
-
-
-//   const [saleUsdt, setSaleUsdt] = useState<number | "">(0);
-//   const [saleMyg, setSaleMyg] = useState<number | "">(0);
-//   const [sendAdr, setSendAdr] = useState<string>("");
-//   const [saleTelegram, setsaleTelegram] = useState<string>("");
-//   const [errorMessage, setErrorMessage] = useState<string>("");
-
-//   // Fetch Round1 data when the component mounts
-//   useEffect(() => {
-//     const fetchRound1Data = async () => {
-//       try {
-//         const round1Ref = ref(db, "Round1");
-//         const snapshot = await get(round1Ref);
-//         if (snapshot.exists()) {
-//           const data = snapshot.val();
-//           setRound1Data({
-//             R1priceusdt: data.R1priceusdt,
-//             minR1buyusdt: data.minR1buyusdt,
-//             maxR1buyusdt: data.maxR1buyusdt,
-//             R1Tokenbuy: data.R1Tokenbuy,
-//             R1start: data.R1start,
-//             R1end: data.R1end,
-//             maxTokenR1: data.maxTokenR1,
-//           });
-//         } else {
-//           console.error("No Round1 data found");
-//         }
-//       } catch (error) {
-//         console.error("Error fetching Round1 data: ", error);
-//       }
-//     };
-//     fetchRound1Data();
-//   }, []);
-
-
-//   // Handle USDT change and calculate MYG
-//   const handleUsdtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     const value = parseFloat(e.target.value);
-//     const tokensToBuy = value / round1Data.R1priceusdt;
-//     const tokensRemaining = round1Data.maxTokenR1 - round1Data.R1Tokenbuy;
-
-//     // If tokens to buy exceed remaining tokens, adjust to remaining tokens
-//     if (tokensToBuy > tokensRemaining) {
-//       setErrorMessage(`Only ${tokensRemaining} tokens remain.`);
-//       setSaleUsdt(tokensRemaining * round1Data.R1priceusdt); // Adjust USDT based on remaining tokens
-//       setSaleMyg(tokensRemaining); // Set MYG to remaining tokens
-//     } else {
-//       setSaleUsdt(value); // Set USDT to entered value
-//       setSaleMyg(tokensToBuy); // Set MYG to calculated value
-//       setErrorMessage(""); // Clear error message
-//     }
-//   };
-
-//   // Handle MYG change and calculate USDT
-//   const handleMygChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     const value = parseFloat(e.target.value);
-//     const tokensRemaining = round1Data.maxTokenR1 - round1Data.R1Tokenbuy;
-
-//     // If entered MYG exceeds remaining tokens, adjust to remaining tokens
-//     if (value > tokensRemaining) {
-//       setErrorMessage(`Only ${tokensRemaining} tokens remain.`);
-//       setSaleMyg(tokensRemaining); // Adjust MYG to remaining tokens
-//       setSaleUsdt(tokensRemaining * round1Data.R1priceusdt); // Set USDT accordingly
-//     } else {
-//       setSaleMyg(value); // Set MYG to entered value
-//       setSaleUsdt(value * round1Data.R1priceusdt); // Calculate and set USDT
-//       setErrorMessage(""); // Clear error message
-//     }
-//   };
-
-
-//   // Handle address input change
-//   const handleAdrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setSendAdr(e.target.value);
-//   };
-
-//   const handleTlegramChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setsaleTelegram(e.target.value);
-//   };
-
-//   // Form submission handler
-//   // Handle form submission and update the token count accordingly
-// const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-//   e.preventDefault();
-
-//   const saleUsdtNumber = typeof saleUsdt === "number" ? saleUsdt : parseFloat(saleUsdt as string);
-//   const form = e.target as HTMLFormElement; // TypeScript type casting to get the form
-//   const saleTid = form.saleTid.value;  // Access the 'saleTid' field from the form
-//   const senderAddress = form.sendAdr.value;  // Access the 'sendAdr' field from the form
-
-
-//   if (
-//     isNaN(saleUsdtNumber) ||
-//     saleUsdtNumber < round1Data.minR1buyusdt ||
-//     saleUsdtNumber > round1Data.maxR1buyusdt
-//   ) {
-//     setErrorMessage(
-//       `USDT amount must be between ${round1Data.minR1buyusdt} and ${round1Data.maxR1buyusdt}`
-//     );
-//     return;
-//   } else if (round1Data.R1Tokenbuy + Number(saleMyg) > round1Data.maxTokenR1) {
-//     // If the total token buy would exceed the max available, reject the purchase
-//     setErrorMessage(
-//       `Not enough tokens available. Only ${round1Data.maxTokenR1 - round1Data.R1Tokenbuy} tokens remain.`
-//     );
-//     return;
-//   } else {
-//     setErrorMessage(""); // Clear the error message
-
-//     if (!user) {
-//       setErrorMessage("You need to log in.");
-//       return;
-//     }
-
-//     try {
-//       const timestamp = Date.now();
-//       const newPurchase = {
-//         saleEmail: user?.email || "", // Fallback to empty string
-//         saleTid: form.saleTid.value,
-//         senderadress: form.sendAdr.value,  // Access the form field via form elements
-//         saleUsdt: saleUsdtNumber,
-//         saleMyg: saleMyg,
-//         verifystatus: false,
-//         timestamp: timestamp,
-//       };
-
-//       // Reference to store under Firebase Auth User (uid) and their Metamask address
-//       const userR1Ref = ref(db, `Round1/R1buyer/users/${user.uid}`);
-      
-//       // Push new entry under the current user's R1buylist
-//       await push(userR1Ref, newPurchase);
-
-//       // After successfully submitting the purchase, update the total R1Tokenbuy
-//       //const round1Ref = ref(db, "Round1");
-//       const round1Ref = ref(db, "Round1");
-
-//       // Fetch current R1Tokenbuy value
-//    //   const snapshot = await get(round1Ref);
-//    const snapshot = await get(round1Ref);
-//       if (snapshot.exists()) {
-//         const currentData = snapshot.val();
-//         //const currentR1Tokenbuy = currentData.R1Tokenbuy || 0;
-//         const currentR1Tokenbuy = currentData.R1Tokenbuy || 0;
-
-//         // Increment R1Tokenbuy by saleMyg value
-//        // const updatedR1Tokenbuy = currentR1Tokenbuy + saleMyg;
-//        const updatedR1Tokenbuy = currentR1Tokenbuy + saleMyg;
-
-
-//         // Update the R1Tokenbuy in Firebase
-//         await update(round1Ref, { R1Tokenbuy: updatedR1Tokenbuy });
-       
-//         console.log("R1Tokenbuy updated successfully!");
-    
-//         // Reset form values after successful submission
-//         setSaleUsdt(0);
-//         setSaleMyg(0);
-//         setSendAdr("");
-//         setsaleTelegram("");
-
-//         // Refresh page or component after submission
-//         window.location.reload(); // Refresh the page to get the updated token data
-//       } else {
-//         // console.error("Round1 data not found");
-//         console.error("Round1 data not found");
-//       }
-
-//     } catch (error) {
-//       console.error("Error submitting form: ", error);
-//     }
-//   }
-// };
-
-
-//   // Check if the current date is between R1start and R1end
-//   const currentDate = new Date().toISOString();
-//   const isSaleActive =
-//     currentDate >= round1Data.R1start &&
-//     currentDate <= round1Data.R1end &&
-//     round1Data.R1Tokenbuy < round1Data.maxTokenR1;
-
-//     console.log(isSaleActive)
-
-//     const handleCopy = () => {
-//       navigator.clipboard.writeText("0x0C68b2445027196599Ba34012Acf55fE90D45B3E")
-//         .then(() => {
-//           alert('Address copied to clipboard!');
-//         })
-//         .catch(err => {
-//           console.error('Failed to copy: ', err);
-//         });
-//     };
-
-//   return (
-//     <div className="downmain">
-     
-//       <div className="downbox1">
-//       <h2>Round 1</h2>
-//       <div>
-//       <p className="providewallet">0x0C68b2445027196599Ba34012Acf55fE90D45B3E</p> 
-//       <span onClick={handleCopy} className="providewalleticon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" fill="currentColor" className="bi bi-copy" viewBox="0 0 16 16">
-//   <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
-// </svg>
-// </span>
-//       </div>
-     
-//         <h3 style={{ fontSize: "42px", marginTop: "2rem", fontWeight: "400", marginBottom: "1rem" }}>Buy Presale</h3>
-//         <form className="custom-form" onSubmit={handleSubmit}>
-//           <div className="form-group">
-//             <label htmlFor="saleemail">Email : </label>
-//             <input type="email" id="saleemail" name="saleemail" value={user?.email || ""} />
-//             <br /><br />
-//             <label htmlFor="saleAdress">Adress: </label>
-//             <input type="any" id="sendAdr" name="sendAdr" value={sendAdr} onChange={handleAdrChange} required placeholder="user wallet adress" />
-//             <br /><br />
-//             <label htmlFor="saleTid">Telegram ID: </label>
-//             <input type="number" id="saleTid" name="saleTid" value={saleTelegram} onChange={handleTlegramChange} required />
-//             <br /><br />
-//             <label htmlFor="saleusdt">USDT : </label>
-//             <input
-//               type="number"
-//               id="saleusdt"
-//               name="saleusdt"
-//               value={saleUsdt}
-//               onChange={handleUsdtChange}
-//               required
-//             />
-//             <br /><br />
-//             <label htmlFor="salemyg">MYG : </label>
-//             <input
-//               type="number"
-//               id="salemyg"
-//               name="salemyg"
-//               value={saleMyg}
-//               onChange={handleMygChange}
-//               required
-//             />
-//             <br /><br />
-//             {isSaleActive && user && <button type="submit" className="submit-btn">Submit</button>}
-//             {!isSaleActive && user && <div className="submit-btn-unactive">Submit</div>}
-//             {!user && <button className="submit-btn-unactive">Submit</button>}
-//             {errorMessage && <div className="error-message">{errorMessage}</div>}
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-//R2
-//R3
 import React, { useState, useEffect } from "react";
 import { ref, push, get, update } from "firebase/database";
 import { db } from "../../../firebase";
@@ -1152,16 +882,16 @@ import "./down.css";
 
 export function Down() {
   const { user } = useAuth(); // Get the Firebase Auth user
-
-  const [round3Data, setRound3Data] = useState({
-    R3priceusdt: 0,
-    minR3buyusdt: 0,
-    maxR3buyusdt: 0,
-    R3Tokenbuy: 0,
-    R3start: "",
-    R3end: "",
-    maxTokenR3: 0,
+  const [round1Data, setRound1Data] = useState({
+    R1priceusdt: 0,
+    minR1buyusdt: 0,
+    maxR1buyusdt: 0,
+    R1Tokenbuy: 0,
+    R1start: "",
+    R1end: "",
+    maxTokenR1: 0,
   });
+
 
 
   const [saleUsdt, setSaleUsdt] = useState<number | "">(0);
@@ -1170,44 +900,44 @@ export function Down() {
   const [saleTelegram, setsaleTelegram] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  // Fetch Round3 data when the component mounts
-
+  // Fetch Round1 data when the component mounts
   useEffect(() => {
-    const fetchRound3Data = async () => {
+    const fetchRound1Data = async () => {
       try {
-        const round3Ref = ref(db, "Round3");
-        const snapshot = await get(round3Ref);
+        const round1Ref = ref(db, "Round1");
+        const snapshot = await get(round1Ref);
         if (snapshot.exists()) {
           const data = snapshot.val();
-          setRound3Data({
-            R3priceusdt: data.R3priceusdt,
-            minR3buyusdt: data.minR3buyusdt,
-            maxR3buyusdt: data.maxR3buyusdt,
-            R3Tokenbuy: data.R3Tokenbuy,
-            R3start: data.R3start,
-            R3end: data.R3end,
-            maxTokenR3: data.maxTokenR3,
+          setRound1Data({
+            R1priceusdt: data.R1priceusdt,
+            minR1buyusdt: data.minR1buyusdt,
+            maxR1buyusdt: data.maxR1buyusdt,
+            R1Tokenbuy: data.R1Tokenbuy,
+            R1start: data.R1start,
+            R1end: data.R1end,
+            maxTokenR1: data.maxTokenR1,
           });
         } else {
-          console.error("No Round3 data found");
+          console.error("No Round1 data found");
         }
       } catch (error) {
-        console.error("Error fetching Round3 data: ", error);
+        console.error("Error fetching Round1 data: ", error);
       }
     };
-    fetchRound3Data();
+    fetchRound1Data();
   }, []);
+
 
   // Handle USDT change and calculate MYG
   const handleUsdtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    const tokensToBuy = value / round3Data.R3priceusdt;
-    const tokensRemaining = round3Data.maxTokenR3 - round3Data.R3Tokenbuy;
+    const tokensToBuy = value / round1Data.R1priceusdt;
+    const tokensRemaining = round1Data.maxTokenR1 - round1Data.R1Tokenbuy;
 
     // If tokens to buy exceed remaining tokens, adjust to remaining tokens
     if (tokensToBuy > tokensRemaining) {
       setErrorMessage(`Only ${tokensRemaining} tokens remain.`);
-      setSaleUsdt(tokensRemaining * round3Data.R3priceusdt); // Adjust USDT based on remaining tokens
+      setSaleUsdt(tokensRemaining * round1Data.R1priceusdt); // Adjust USDT based on remaining tokens
       setSaleMyg(tokensRemaining); // Set MYG to remaining tokens
     } else {
       setSaleUsdt(value); // Set USDT to entered value
@@ -1219,16 +949,16 @@ export function Down() {
   // Handle MYG change and calculate USDT
   const handleMygChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    const tokensRemaining = round3Data.maxTokenR3 - round3Data.R3Tokenbuy;
+    const tokensRemaining = round1Data.maxTokenR1 - round1Data.R1Tokenbuy;
 
     // If entered MYG exceeds remaining tokens, adjust to remaining tokens
     if (value > tokensRemaining) {
       setErrorMessage(`Only ${tokensRemaining} tokens remain.`);
       setSaleMyg(tokensRemaining); // Adjust MYG to remaining tokens
-      setSaleUsdt(tokensRemaining * round3Data.R3priceusdt); // Set USDT accordingly
+      setSaleUsdt(tokensRemaining * round1Data.R1priceusdt); // Set USDT accordingly
     } else {
       setSaleMyg(value); // Set MYG to entered value
-      setSaleUsdt(value * round3Data.R3priceusdt); // Calculate and set USDT
+      setSaleUsdt(value * round1Data.R1priceusdt); // Calculate and set USDT
       setErrorMessage(""); // Clear error message
     }
   };
@@ -1256,17 +986,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   if (
     isNaN(saleUsdtNumber) ||
-    saleUsdtNumber < round3Data.minR3buyusdt ||
-    saleUsdtNumber > round3Data.maxR3buyusdt
+    saleUsdtNumber < round1Data.minR1buyusdt ||
+    saleUsdtNumber > round1Data.maxR1buyusdt
   ) {
     setErrorMessage(
-      `USDT amount must be between ${round3Data.minR3buyusdt} and ${round3Data.maxR3buyusdt}`
+      `USDT amount must be between ${round1Data.minR1buyusdt} and ${round1Data.maxR1buyusdt}`
     );
     return;
-  } else if (round3Data.R3Tokenbuy + Number(saleMyg) > round3Data.maxTokenR3) {
+  } else if (round1Data.R1Tokenbuy + Number(saleMyg) > round1Data.maxTokenR1) {
     // If the total token buy would exceed the max available, reject the purchase
     setErrorMessage(
-      `Not enough tokens available. Only ${round3Data.maxTokenR3 - round3Data.R3Tokenbuy} tokens remain.`
+      `Not enough tokens available. Only ${round1Data.maxTokenR1 - round1Data.R1Tokenbuy} tokens remain.`
     );
     return;
   } else {
@@ -1290,31 +1020,33 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       };
 
       // Reference to store under Firebase Auth User (uid) and their Metamask address
-      const userR3Ref = ref(db, `Round3/R3buyer/users/${user.uid}`);
+      const userR1Ref = ref(db, `Round1/R1buyer/users/${user.uid}`);
       
-      // Push new entry under the current user's R3buylist
-      await push(userR3Ref, newPurchase);
+      // Push new entry under the current user's R1buylist
+      await push(userR1Ref, newPurchase);
 
-      // After successfully submitting the purchase, update the total R3Tokenbuy
-   
-      const round3Ref = ref(db, "Round3");
+      // After successfully submitting the purchase, update the total R1Tokenbuy
+      //const round1Ref = ref(db, "Round1");
+      const round1Ref = ref(db, "Round1");
 
-      // Fetch current R3Tokenbuy value
-   const snapshot = await get(round3Ref);
+      // Fetch current R1Tokenbuy value
+   //   const snapshot = await get(round1Ref);
+   const snapshot = await get(round1Ref);
       if (snapshot.exists()) {
         const currentData = snapshot.val();
-     
-        const currentR3Tokenbuy = currentData.R3Tokenbuy || 0;
+        //const currentR1Tokenbuy = currentData.R1Tokenbuy || 0;
+        const currentR1Tokenbuy = currentData.R1Tokenbuy || 0;
 
-        // Increment R3Tokenbuy by saleMyg value
-      
-       const updatedR3Tokenbuy = currentR3Tokenbuy + saleMyg;
+        // Increment R1Tokenbuy by saleMyg value
+       // const updatedR1Tokenbuy = currentR1Tokenbuy + saleMyg;
+       const updatedR1Tokenbuy = currentR1Tokenbuy + saleMyg;
 
 
-        // Update the R3Tokenbuy in Firebase
-       await update(round3Ref, { R3Tokenbuy: updatedR3Tokenbuy });
-
-        console.log("R3Tokenbuy updated successfully!");
+        // Update the R1Tokenbuy in Firebase
+        await update(round1Ref, { R1Tokenbuy: updatedR1Tokenbuy });
+       
+        console.log("R1Tokenbuy updated successfully!");
+    
         // Reset form values after successful submission
         setSaleUsdt(0);
         setSaleMyg(0);
@@ -1324,8 +1056,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         // Refresh page or component after submission
         window.location.reload(); // Refresh the page to get the updated token data
       } else {
-        console.error("Round3 data not found");
+        // console.error("Round1 data not found");
+        console.error("Round1 data not found");
       }
+
     } catch (error) {
       console.error("Error submitting form: ", error);
     }
@@ -1333,12 +1067,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
 
-  // Check if the current date is between R3start and R3end
+  // Check if the current date is between R1start and R1end
   const currentDate = new Date().toISOString();
   const isSaleActive =
-    currentDate >= round3Data.R3start &&
-    currentDate <= round3Data.R3end &&
-    round3Data.R3Tokenbuy < round3Data.maxTokenR3;
+    currentDate >= round1Data.R1start &&
+    currentDate <= round1Data.R1end &&
+    round1Data.R1Tokenbuy < round1Data.maxTokenR1;
 
     console.log(isSaleActive)
 
@@ -1356,7 +1090,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     <div className="downmain">
      
       <div className="downbox1">
-      <h2>Round 3</h2>
+      <h2>Round 1</h2>
       <div>
       <p className="providewallet">0x0C68b2445027196599Ba34012Acf55fE90D45B3E</p> 
       <span onClick={handleCopy} className="providewalleticon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" fill="currentColor" className="bi bi-copy" viewBox="0 0 16 16">
@@ -1407,3 +1141,269 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     </div>
   );
 }
+
+//R2
+//R3
+// import React, { useState, useEffect } from "react";
+// import { ref, push, get, update } from "firebase/database";
+// import { db } from "../../../firebase";
+// import { useAuth } from "../../../auth";
+// import "./down.css";
+
+// export function Down() {
+//   const { user } = useAuth(); // Get the Firebase Auth user
+
+//   const [round3Data, setRound3Data] = useState({
+//     R3priceusdt: 0,
+//     minR3buyusdt: 0,
+//     maxR3buyusdt: 0,
+//     R3Tokenbuy: 0,
+//     R3start: "",
+//     R3end: "",
+//     maxTokenR3: 0,
+//   });
+
+
+//   const [saleUsdt, setSaleUsdt] = useState<number | "">(0);
+//   const [saleMyg, setSaleMyg] = useState<number | "">(0);
+//   const [sendAdr, setSendAdr] = useState<string>("");
+//   const [saleTelegram, setsaleTelegram] = useState<string>("");
+//   const [errorMessage, setErrorMessage] = useState<string>("");
+
+//   // Fetch Round3 data when the component mounts
+
+//   useEffect(() => {
+//     const fetchRound3Data = async () => {
+//       try {
+//         const round3Ref = ref(db, "Round3");
+//         const snapshot = await get(round3Ref);
+//         if (snapshot.exists()) {
+//           const data = snapshot.val();
+//           setRound3Data({
+//             R3priceusdt: data.R3priceusdt,
+//             minR3buyusdt: data.minR3buyusdt,
+//             maxR3buyusdt: data.maxR3buyusdt,
+//             R3Tokenbuy: data.R3Tokenbuy,
+//             R3start: data.R3start,
+//             R3end: data.R3end,
+//             maxTokenR3: data.maxTokenR3,
+//           });
+//         } else {
+//           console.error("No Round3 data found");
+//         }
+//       } catch (error) {
+//         console.error("Error fetching Round3 data: ", error);
+//       }
+//     };
+//     fetchRound3Data();
+//   }, []);
+
+//   // Handle USDT change and calculate MYG
+//   const handleUsdtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const value = parseFloat(e.target.value);
+//     const tokensToBuy = value / round3Data.R3priceusdt;
+//     const tokensRemaining = round3Data.maxTokenR3 - round3Data.R3Tokenbuy;
+
+//     // If tokens to buy exceed remaining tokens, adjust to remaining tokens
+//     if (tokensToBuy > tokensRemaining) {
+//       setErrorMessage(`Only ${tokensRemaining} tokens remain.`);
+//       setSaleUsdt(tokensRemaining * round3Data.R3priceusdt); // Adjust USDT based on remaining tokens
+//       setSaleMyg(tokensRemaining); // Set MYG to remaining tokens
+//     } else {
+//       setSaleUsdt(value); // Set USDT to entered value
+//       setSaleMyg(tokensToBuy); // Set MYG to calculated value
+//       setErrorMessage(""); // Clear error message
+//     }
+//   };
+
+//   // Handle MYG change and calculate USDT
+//   const handleMygChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const value = parseFloat(e.target.value);
+//     const tokensRemaining = round3Data.maxTokenR3 - round3Data.R3Tokenbuy;
+
+//     // If entered MYG exceeds remaining tokens, adjust to remaining tokens
+//     if (value > tokensRemaining) {
+//       setErrorMessage(`Only ${tokensRemaining} tokens remain.`);
+//       setSaleMyg(tokensRemaining); // Adjust MYG to remaining tokens
+//       setSaleUsdt(tokensRemaining * round3Data.R3priceusdt); // Set USDT accordingly
+//     } else {
+//       setSaleMyg(value); // Set MYG to entered value
+//       setSaleUsdt(value * round3Data.R3priceusdt); // Calculate and set USDT
+//       setErrorMessage(""); // Clear error message
+//     }
+//   };
+
+
+//   // Handle address input change
+//   const handleAdrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setSendAdr(e.target.value);
+//   };
+
+//   const handleTlegramChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setsaleTelegram(e.target.value);
+//   };
+
+//   // Form submission handler
+//   // Handle form submission and update the token count accordingly
+// const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+//   e.preventDefault();
+
+//   const saleUsdtNumber = typeof saleUsdt === "number" ? saleUsdt : parseFloat(saleUsdt as string);
+//   const form = e.target as HTMLFormElement; // TypeScript type casting to get the form
+//   const saleTid = form.saleTid.value;  // Access the 'saleTid' field from the form
+//   const senderAddress = form.sendAdr.value;  // Access the 'sendAdr' field from the form
+
+
+//   if (
+//     isNaN(saleUsdtNumber) ||
+//     saleUsdtNumber < round3Data.minR3buyusdt ||
+//     saleUsdtNumber > round3Data.maxR3buyusdt
+//   ) {
+//     setErrorMessage(
+//       `USDT amount must be between ${round3Data.minR3buyusdt} and ${round3Data.maxR3buyusdt}`
+//     );
+//     return;
+//   } else if (round3Data.R3Tokenbuy + Number(saleMyg) > round3Data.maxTokenR3) {
+//     // If the total token buy would exceed the max available, reject the purchase
+//     setErrorMessage(
+//       `Not enough tokens available. Only ${round3Data.maxTokenR3 - round3Data.R3Tokenbuy} tokens remain.`
+//     );
+//     return;
+//   } else {
+//     setErrorMessage(""); // Clear the error message
+
+//     if (!user) {
+//       setErrorMessage("You need to log in.");
+//       return;
+//     }
+
+//     try {
+//       const timestamp = Date.now();
+//       const newPurchase = {
+//         saleEmail: user?.email || "", // Fallback to empty string
+//         saleTid: form.saleTid.value,
+//         senderadress: form.sendAdr.value,  // Access the form field via form elements
+//         saleUsdt: saleUsdtNumber,
+//         saleMyg: saleMyg,
+//         verifystatus: false,
+//         timestamp: timestamp,
+//       };
+
+//       // Reference to store under Firebase Auth User (uid) and their Metamask address
+//       const userR3Ref = ref(db, `Round3/R3buyer/users/${user.uid}`);
+      
+//       // Push new entry under the current user's R3buylist
+//       await push(userR3Ref, newPurchase);
+
+//       // After successfully submitting the purchase, update the total R3Tokenbuy
+   
+//       const round3Ref = ref(db, "Round3");
+
+//       // Fetch current R3Tokenbuy value
+//    const snapshot = await get(round3Ref);
+//       if (snapshot.exists()) {
+//         const currentData = snapshot.val();
+     
+//         const currentR3Tokenbuy = currentData.R3Tokenbuy || 0;
+
+//         // Increment R3Tokenbuy by saleMyg value
+      
+//        const updatedR3Tokenbuy = currentR3Tokenbuy + saleMyg;
+
+
+//         // Update the R3Tokenbuy in Firebase
+//        await update(round3Ref, { R3Tokenbuy: updatedR3Tokenbuy });
+
+//         console.log("R3Tokenbuy updated successfully!");
+//         // Reset form values after successful submission
+//         setSaleUsdt(0);
+//         setSaleMyg(0);
+//         setSendAdr("");
+//         setsaleTelegram("");
+
+//         // Refresh page or component after submission
+//         window.location.reload(); // Refresh the page to get the updated token data
+//       } else {
+//         console.error("Round3 data not found");
+//       }
+//     } catch (error) {
+//       console.error("Error submitting form: ", error);
+//     }
+//   }
+// };
+
+
+//   // Check if the current date is between R3start and R3end
+//   const currentDate = new Date().toISOString();
+//   const isSaleActive =
+//     currentDate >= round3Data.R3start &&
+//     currentDate <= round3Data.R3end &&
+//     round3Data.R3Tokenbuy < round3Data.maxTokenR3;
+
+//     console.log(isSaleActive)
+
+//     const handleCopy = () => {
+//       navigator.clipboard.writeText("0x0C68b2445027196599Ba34012Acf55fE90D45B3E")
+//         .then(() => {
+//           alert('Address copied to clipboard!');
+//         })
+//         .catch(err => {
+//           console.error('Failed to copy: ', err);
+//         });
+//     };
+
+//   return (
+//     <div className="downmain">
+     
+//       <div className="downbox1">
+//       <h2>Round 3</h2>
+//       <div>
+//       <p className="providewallet">0x0C68b2445027196599Ba34012Acf55fE90D45B3E</p> 
+//       <span onClick={handleCopy} className="providewalleticon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" fill="currentColor" className="bi bi-copy" viewBox="0 0 16 16">
+//   <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+// </svg>
+// </span>
+//       </div>
+     
+//         <h3 style={{ fontSize: "42px", marginTop: "2rem", fontWeight: "400", marginBottom: "1rem" }}>Buy Presale</h3>
+//         <form className="custom-form" onSubmit={handleSubmit}>
+//           <div className="form-group">
+//             <label htmlFor="saleemail">Email : </label>
+//             <input type="email" id="saleemail" name="saleemail" value={user?.email || ""} />
+//             <br /><br />
+//             <label htmlFor="saleAdress">Adress: </label>
+//             <input type="any" id="sendAdr" name="sendAdr" value={sendAdr} onChange={handleAdrChange} required placeholder="user wallet adress" />
+//             <br /><br />
+//             <label htmlFor="saleTid">Telegram ID: </label>
+//             <input type="number" id="saleTid" name="saleTid" value={saleTelegram} onChange={handleTlegramChange} required />
+//             <br /><br />
+//             <label htmlFor="saleusdt">USDT : </label>
+//             <input
+//               type="number"
+//               id="saleusdt"
+//               name="saleusdt"
+//               value={saleUsdt}
+//               onChange={handleUsdtChange}
+//               required
+//             />
+//             <br /><br />
+//             <label htmlFor="salemyg">MYG : </label>
+//             <input
+//               type="number"
+//               id="salemyg"
+//               name="salemyg"
+//               value={saleMyg}
+//               onChange={handleMygChange}
+//               required
+//             />
+//             <br /><br />
+//             {isSaleActive && user && <button type="submit" className="submit-btn">Submit</button>}
+//             {!isSaleActive && user && <div className="submit-btn-unactive">Submit</div>}
+//             {!user && <button className="submit-btn-unactive">Submit</button>}
+//             {errorMessage && <div className="error-message">{errorMessage}</div>}
+//           </div>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
