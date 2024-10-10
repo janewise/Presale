@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./home.css"
 import { Social } from "../social";
-import coin from "./square.png"
+import coin from "./square1.png"
 
 export function Home() {
   return (
