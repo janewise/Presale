@@ -40,7 +40,7 @@ export function WPaper() {
         {/*  */}
         <br />
         <hr />
-      <b style={{fontSize:"20px"}}> WhitePaper:</b> <a href="./myg_white_paper.zip" download="MYG_WhitePaper" className="btn btn-primary">
+      <b style={{fontSize:"20px"}}> WhitePaper:</b> <a href="/myg_white_paper.pdf" download="MYG_WhitePaper" className="btn btn-primary">
   Download
 </a>
 
