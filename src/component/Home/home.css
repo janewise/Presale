@@ -89,28 +89,28 @@ width: 100%;
   }
   
   .homecoin {
-    width: 105%;
+    width: 90%;
     height: auto;
 
   }
 
 
   /* Animation only for users who don't prefer reduced motion */
-  @media (prefers-reduced-motion: no-preference) {
+  /* @media (prefers-reduced-motion: no-preference) {
     .homecoin {
-      animation: App-logo-spin infinite 15s linear; /* Reduced duration for a smoother effect */
+      animation: App-logo-spin infinite 15s linear; 
     }
-  }
+  } */
   
   /* Keyframes for spinning animation */
-  @keyframes App-logo-spin {
+  /* @keyframes App-logo-spin {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
+  } */
   
   /* Additional responsive styling 
   @media (max-width: 768px) {

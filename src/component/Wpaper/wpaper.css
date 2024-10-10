@@ -1,0 +1,175 @@
+.mainwhitepaper{
+    background-color: rgba(20, 19, 19, 0.5);
+    margin: 3% 5% 4% 5%;
+}
+.whitequestions{
+    padding:40px 10%;
+}
+
+.whitequestions p{
+    font-size: 20px;
+}
+.ol_01 li{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 1.7rem;
+}
+.ul_01 li{
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0.5rem 0 0 0;
+}
+
+.btn {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 6px 18px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+
+/* boostrap */
+    .accordion{
+        border-radius: 5px;
+        --bs-accordion-bg:  rgba(20, 19, 19, 0);/* accordin bg */
+        --bs-accordion-btn-color:#ffffff;/* accordin color */
+        --bs-accordion-border-width:3px;  /* accordin border px */
+        --bs-accordion-border-color: rgba(92, 88, 88, 0.441);/* accordin border color */
+        --bs-accordion-btn-focus-box-shadow:none;/* accordin focus border color */
+    }
+
+    .accordion-button{
+        font-size: 1.3rem;
+    }
+
+    .accordion-item {
+        color: #fdfdfd;
+        background-color: rgba(20, 19, 19, 0.8);
+        /* border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color); */
+    }
+
+    .accordion-body{
+        padding:20px 3%;
+    }
+
+    /* fortable */
+
+    table {
+        font-family: arial, sans-serif;
+        /* border-collapse: collapse; */
+        width: 100%;
+      }
+      
+      td, th {
+        border: 2px solid #ffffff;
+        text-align:center;
+        font-size: 17px;
+      }
+
+      tr{
+        background-color: #ffffff00 !important;
+      }
+      
+      .roadleft{
+        text-align:left;
+      }
+
+/* custom accordion */
+
+.custom_accordion h4{
+  margin: 3rem 0 1.5rem 0;
+    }
+
+.custom_accordion p{
+font-size: 18px;
+margin-bottom: 2.5rem;
+}
+
+.custom_accordion li{
+   font-size: 18px;
+    }
+.ul_02{
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+/* 5.2 */
+.wpaperallo{
+    width: 60%;
+    height: auto;
+    padding: 1.7rem 0 3.5rem 0;
+    border-radius: 3px;
+}
+/* 7 */
+.custom_accordion ol li{
+   margin: 1rem 0;
+     }
+
+/* 6 */
+.roadleft li{
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+
+/* media */
+
+
+  @media (max-width:1000px) {      
+       /* 5.2 */
+    .wpaperallo{
+        width: 70%;
+    }
+    }
+ 
+    @media (max-width:768px) {     
+        .mainwhitepaper{
+            margin: 3% 2% 4% 2%;
+        } 
+        /* 5.2 */
+     .wpaperallo{
+         width: 80%;
+     }
+     }
+
+     @media (max-width:600px) {     
+        /* 5.2 */
+     .wpaperallo{
+         width: 90%;
+     }
+     }
+
+     @media (max-width:425px) {   
+        .mainwhitepaper{
+            margin: 3% 1% 4% 1%;
+        }   
+        .custom_accordion li{
+            font-size: 16px;
+             }
+             .ul_02{
+                font-size: 15px;
+              
+            }
+        /* 5.2 */
+     .wpaperallo{
+         width: 98%;
+     }
+     }
+
+     @media (max-width:425px) {   
+        .custom_accordion li{
+            font-size: 14px;
+             }
+             .ul_02{
+                font-size: 14px;
+              
+            }
+        /* 5.2 */
+     .wpaperallo{
+         width: 100%;
+     }
+     }

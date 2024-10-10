@@ -34,13 +34,13 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 import { Nav } from './component/Nav/Nav';
 import { Home } from './component/Home/home';
 import { Presale } from './component/Presale/presale';
-import { Nft } from './component/Nft/nft';
+// import { Nft } from './component/Nft/nft';
+// import  NftStake from "./component/NftStake/nftstake";
 import {Tx} from "./component/Tx/tx"
 import { Refferal } from './component/Refferal/refferal';
 import { SignIn } from "./component/logInandReguister/Signin";
 import { SignUp } from "./component/logInandReguister/Signup";
 import { Resetpass } from "./component/logInandReguister/resetpassword";
-import  NftStake from "./component/NftStake/nftstake";
 import Userprofile from "./component/logInandReguister/userprofile";
 import "./App.css"
 import { AuthProvider } from "./auth";
@@ -48,6 +48,7 @@ import { initializeRound1} from "./firebaseFunctions";
 import { initializeRound2} from "./firebaseFunctions"; 
 import { initializeRound3} from "./firebaseFunctions"; 
 import { Roadmap } from "./component/Roadmap/roadmap";
+import { WPaper } from "./component/Wpaper/wpaper";
 
 function App() {
   const location = useLocation();
@@ -76,12 +77,13 @@ function App() {
         {/* Add other routes */}
         <Route path="/" element={<Home />}/>
         <Route path="/presale" element={<Presale />}/>
-        <Route path="/nft" element={<Nft />}/>
+        {/* <Route path="/nft" element={<Nft />}/> */}
+        {/* <Route path="/nftstake" element={<NftStake />}/> */}
         <Route path="/tx" element={<Tx />}/>
-         <Route path="/refferal" element={<Refferal />}/>
-         <Route path="/nftstake" element={<NftStake />}/>
-         <Route path="/profile" element={<Userprofile />}/>
-         <Route path="/roadmap" element={<Roadmap />}/>
+        <Route path="/refferal" element={<Refferal />}/>
+        <Route path="/profile" element={<Userprofile />}/>
+        <Route path="/whitepaper" element={<WPaper />}/>
+        <Route path="/roadmap" element={<Roadmap />}/>
       </Routes>
     </>
   );

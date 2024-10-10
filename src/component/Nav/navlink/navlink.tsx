@@ -22,7 +22,7 @@ export function Navlink() {
           {/* <li className="nav-item">
           <NavLink to="/nft" className={({ isActive }) => isActive ? "link active nav-link" : "link nav-link"}>NFT</NavLink>
           </li> */}
-          <li className="nav-item dropdown">
+          {/* <li className="nav-item dropdown">
           <a className={`nav-link dropdown-toggle ${isDropdownActive ? "active" : ""}`} href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             NFT
           </a>
@@ -30,9 +30,12 @@ export function Navlink() {
             <NavLink to="/nft" className={({ isActive }) => isActive ? "link active nav-link dropdown-item" : "link nav-link dropdown-item"}>NFT Sale</NavLink>
             <NavLink to="/nftstake" className={({ isActive }) => isActive ? "link active nav-link dropdown-item" : "link nav-link dropdown-item"}>NFT STake</NavLink>
           </ul>
-        </li>
+        </li> */}
           <li className="nav-item">
           <NavLink to="/tx" className={({ isActive }) => isActive ? "link active nav-link" : "link nav-link"}>Tx</NavLink>
+          </li>
+          <li className="nav-item">
+          <NavLink to="/whitepaper" className={({ isActive }) => isActive ? "link active nav-link" : "link nav-link"}>White-Paper</NavLink>
           </li>
           <li className="nav-item">
           <NavLink to="/roadmap" className={({ isActive }) => isActive ? "link active nav-link" : "link nav-link"}>Roadmap</NavLink>
