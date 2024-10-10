@@ -44,7 +44,7 @@
 import React, { useEffect, useState } from "react";
 import "./mup.css";
 import presaletext from "../imgpresale/PRESALECOUNTDOWN.png";
-import coin from "../imgpresale/Logoimage.png";
+import coin from "../imgpresale/square1.png";
 import glad from "../imgpresale/MythicalGladiator.png";
 import Countdown from "./countdown";
 import { db } from "../../../firebase"; // Import Firebase db
@@ -128,7 +128,7 @@ export function Mup() {
         </div>
       </div>
       <div className="mupbox3">
-        <h4>Batch Price : $ 0.03</h4>
+        <h4>Batch Price : $ 0.01</h4>
         <h4>Min Price : $ 15</h4>
         <h4>Max Price : $ 50</h4>
       </div>

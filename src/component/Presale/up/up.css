@@ -36,12 +36,12 @@ text-align:center;
 }
 
 .leftcoin img{
-    width: 100%;
+    width: 65%;
     }
 
   .MythicalGladiator{
     position: relative;
-    bottom:17%;
+    bottom:12%;
     width: 70% !important;
     height: 40px;
   }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./up.css"
 import presaletext from "../imgpresale/PRESALECOUNTDOWN.png"
-import coin from "../imgpresale/Logoimage.png"
+import coin from "../imgpresale/square1.png"
 import glad from "../imgpresale/MythicalGladiator.png"
 import Countdown from "./countdown";
 import { db } from "../../../firebase"; // Import Firebase db
