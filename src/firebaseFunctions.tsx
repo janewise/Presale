@@ -196,7 +196,7 @@ export async function initializeRound3() {
 }
 
 // Sign up function
-export async function signUpUser(email: string, password: string, telegramId: string) {
+export async function signUpUser(email: string, password: string, UsernameId: string) {
   try {
     // Create user with email and password
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -208,7 +208,7 @@ export async function signUpUser(email: string, password: string, telegramId: st
     // Save user data to the Realtime Database
     await set(ref(db, 'users/' + user.uid), {
       email: email,
-      telegramId: telegramId,
+      UsernameId: UsernameId,
       createdAt: new Date().toISOString()
     });
 

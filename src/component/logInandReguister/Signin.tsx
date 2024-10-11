@@ -36,10 +36,10 @@ export function SignIn() {
       if (snapshot.exists()) {
         const userData = snapshot.val();
 
-        if (userData.UsernameId !== UsernameId) {
-          setError("Telegram ID does not match.");
-          return;
-        }
+        // if (userData.UsernameId !== UsernameId) {
+        //   setError("Telegram ID does not match.");
+        //   return;
+        // }
 
         navigate("/");
       } else {
