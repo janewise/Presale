@@ -897,7 +897,7 @@ export function Down() {
   const [saleUsdt, setSaleUsdt] = useState<number | "">(0);
   const [saleMyg, setSaleMyg] = useState<number | "">(0);
   const [sendAdr, setSendAdr] = useState<string>("");
-  const [saleTelegram, setsaleTelegram] = useState<string>("");
+  //const [saleTelegram, setsaleTelegram] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   // Fetch Round1 data when the component mounts
@@ -969,9 +969,9 @@ export function Down() {
     setSendAdr(e.target.value);
   };
 
-  const handleTlegramChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setsaleTelegram(e.target.value);
-  };
+  // const handleTlegramChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setsaleTelegram(e.target.value);
+  // };
 
   // Form submission handler
   // Handle form submission and update the token count accordingly
@@ -1011,7 +1011,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       const timestamp = Date.now();
       const newPurchase = {
         saleEmail: user?.email || "", // Fallback to empty string
-        saleTid: form.saleTid.value,
+        // saleTid: form.saleTid.value,
         senderadress: form.sendAdr.value,  // Access the form field via form elements
         saleUsdt: saleUsdtNumber,
         saleMyg: saleMyg,
@@ -1051,7 +1051,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         setSaleUsdt(0);
         setSaleMyg(0);
         setSendAdr("");
-        setsaleTelegram("");
+        // setsaleTelegram("");
 
         // Refresh page or component after submission
         window.location.reload(); // Refresh the page to get the updated token data
@@ -1108,9 +1108,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             <label htmlFor="saleAdress">Adress: </label>
             <input type="any" id="sendAdr" name="sendAdr" value={sendAdr} onChange={handleAdrChange} required placeholder="user wallet adress" />
             <br /><br />
-            <label htmlFor="saleTid">Telegram ID: </label>
+            {/* <label htmlFor="saleTid">Telegram ID: </label>
             <input type="number" id="saleTid" name="saleTid" value={saleTelegram} onChange={handleTlegramChange} required />
-            <br /><br />
+            <br /><br /> */}
             <label htmlFor="saleusdt">USDT : </label>
             <input
               type="number"
