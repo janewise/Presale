@@ -12,7 +12,7 @@ export function SignIn() {
   // Existing state declarations...
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [telegramId, setTelegramId] = useState("");
+  const [UsernameId, setUsernameId] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export function SignIn() {
       if (snapshot.exists()) {
         const userData = snapshot.val();
 
-        if (userData.telegramId !== telegramId) {
+        if (userData.UsernameId !== UsernameId) {
           setError("Telegram ID does not match.");
           return;
         }
@@ -56,7 +56,7 @@ export function SignIn() {
       <div className="signIn-container">
         <h2>Sign In</h2>
         <form onSubmit={handleSubmit}>
-          <div className="In-form-group">
+          {/* <div className="In-form-group">
             <input
               type="number"
               id="Telegram_id"
@@ -66,7 +66,7 @@ export function SignIn() {
               onChange={(e) => setTelegramId(e.target.value)}
               required
             />
-          </div>
+          </div> */}
           <div className="In-form-group">
             <input
               type="email"

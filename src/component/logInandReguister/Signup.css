@@ -30,6 +30,7 @@ border-radius: 20px;
     
 
 .Up-form-group input[type="password"],
+.Up-form-group input[type="string"],
 .Up-form-group input[type="email"]{
   border: none;
   border-bottom: 2px solid #ccc;
@@ -39,6 +40,7 @@ border-radius: 20px;
 }
 
 .Up-form-group input[type="password"]::-webkit-outer-spin-button,
+.Up-form-group input[type="string"]::-webkit-outer-spin-button,
 .Up-form-group input[type="email"]::-webkit-outer-spin-button {
 -webkit-appearance: none;
 margin: 0;

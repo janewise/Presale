@@ -42,7 +42,7 @@ width: 100%;
     font-family: "Inknut Antiqua", serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 64px;
+    font-size: 45px;
     background: linear-gradient(90deg, #00CCFF 0%, #D413FF 78%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -69,7 +69,7 @@ width: 100%;
     padding:9px 4px;
     border: 2px solid #fff;
     border-radius: 15px;
-    width: 140px;
+    width: 160px;
     text-align: center;
 }
 

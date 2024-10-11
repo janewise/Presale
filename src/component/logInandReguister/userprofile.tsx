@@ -11,7 +11,7 @@ import { chain } from "../../app/chain";
 
 export default function Userprofile() {
   const [email, setEmail] = useState<string | null>(null);
-  const [telegramId, setTelegramId] = useState<string | null>(null);
+  const [UsernameId, setUsernameId] = useState<string | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Userprofile() {
 
           if (snapshot.exists()) {
             const userData = snapshot.val();
-            setTelegramId(userData.telegramId);
+            setUsernameId(userData.UsernameId);
           } else {
             console.error("No data available for this user.");
           }
@@ -53,7 +53,7 @@ export default function Userprofile() {
       <div className="profile-box1">
         <h2>User Profile</h2>
         <div className="profile-details">
-          <p><strong>Telegram ID:</strong> {telegramId}</p>
+          <p><strong>Username:</strong> {UsernameId}</p>
           <p><strong>Email:</strong> {email}</p>
         </div>
 

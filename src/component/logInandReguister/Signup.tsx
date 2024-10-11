@@ -147,7 +147,7 @@ export function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [telegramId, setTelegramId] = useState("");
+  const [UsernameId, setUsernameId] = useState("");
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -191,7 +191,7 @@ export function SignUp() {
 
     if (formIsValid) {
       try {
-        const user = await signUpUser(email, password, telegramId);
+        const user = await signUpUser(email, password, UsernameId);
         console.log("User signed up:", user);
 
         // Set success message and show modal
@@ -220,12 +220,12 @@ export function SignUp() {
         <form onSubmit={handleSubmit}>
           <div className="Up-form-group">
             <input
-              type="number"
+              type="string"
               id="Telegram_id"
               className="Up-form-control"
-              placeholder="Telegram ID"
-              value={telegramId}
-              onChange={(e) => setTelegramId(e.target.value)}
+              placeholder="UserName"
+              value={UsernameId}
+              onChange={(e) => setUsernameId(e.target.value)}
               required
             />
           </div>
