@@ -980,7 +980,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   const saleUsdtNumber = typeof saleUsdt === "number" ? saleUsdt : parseFloat(saleUsdt as string);
   const form = e.target as HTMLFormElement; // TypeScript type casting to get the form
-  const saleTid = form.saleTid.value;  // Access the 'saleTid' field from the form
+ // const saleTid = form.saleTid.value;  // Access the 'saleTid' field from the form
   const senderAddress = form.sendAdr.value;  // Access the 'sendAdr' field from the form
 
 
