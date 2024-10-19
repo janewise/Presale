@@ -13,7 +13,7 @@ export function Home() {
       {/* leftside */}
       <div className="homeleft">
         <h1 className="gladiator">Mythical Gladiator</h1>
-        <h1 className=" myg">MYG Coin take you <br />          future of gaming</h1>
+        <h1 className=" myg">MYG Coin take you <br /> future of gaming</h1>
         {/* paragraph */}
         <div >
 <p>Lorem ipsum dolor sit amet consectetur. Id mauris vivamus nibh quis erat sed ac egestas. Hendrerit nisi eget vel facilisis a. Habitasse eget faucibus morbi proin pretium vitae tempor enim at. Nec sit neque bibendum adipiscing arcu orci sed mauris cursus. Pellentesque augue in quis leo quis.</p>
