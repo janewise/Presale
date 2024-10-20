@@ -173,6 +173,32 @@ width: 100%;
     margin-top: 2rem;
 }
 
+/*05 Pataner */
+.pataner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.pataner h3{
+  font-size: 30px;
+  margin-bottom: 3rem;
+}
+
+.patanerbox{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.patanericon{
+  width: 22%;
+  height: auto;
+}
+
+
 /*A -- -- ?Media quaries? -- -- */
 
 /*a-- -- ?homeflex? -- -- */
@@ -279,5 +305,21 @@ width: 100%;
   }
   .homecoin{
     width: 75%;
+  }
+}
+
+/*c pataner quaries  */
+
+@media (max-width:576px) {
+  .patanericon{
+    width: 40%;
+    height: auto;
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width:425px) {
+  .patanericon{
+    width: 45%;
   }
 }
